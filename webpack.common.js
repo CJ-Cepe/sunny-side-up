@@ -8,11 +8,14 @@ const path = require('path');
    },
    plugins: [
      new HtmlWebpackPlugin({
-       title: 'Production',
+       title: 'SunnySideUp',
+       filename: 'index.html',
+       inject: 'head',
+       scriptLoading: 'defer',
      }),
    ],
    output: {
-     filename: '[name].bundle.js',
+     filename: 'index.js',
      path: path.resolve(__dirname, 'dist'),
      clean: true,
    },
