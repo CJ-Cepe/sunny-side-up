@@ -1,9 +1,10 @@
 import { getData, getInfo } from "./dataRetriever";
-import { layoutMain } from "./layoutManager";
+import { layoutMain, setLocation } from "./layoutManager";
 import "./style.css";
 
 (async function () {
-  layoutMain();
+  const doc = layoutMain();
   const data = await getInfo();
-  console.log(data)
+  
+  setLocation(doc, data)
 })();
