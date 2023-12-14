@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack watch --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "clean": "npx eslint index.js --fix && npx prettier index.js --write"
+    "clean": "npx eslint ./src/*.js || npx prettier ./src/*.js --write",
+    "start": "npm run clean && webpack watch --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
