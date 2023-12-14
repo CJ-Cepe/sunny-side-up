@@ -1,8 +1,9 @@
-import { getData } from "./dataRetriever"
+import { getData, getInfo } from "./dataRetriever";
 import { layoutMain } from "./layoutManager";
-import './style.css';
+import "./style.css";
 
-(function () {
-    layoutMain()
-    getData();
-})()
+(async function () {
+  layoutMain();
+  const data = await getInfo();
+  console.log(data)
+})();
