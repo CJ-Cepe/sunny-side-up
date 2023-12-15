@@ -5,6 +5,7 @@ import "./style.css";
 (async function () {
   const doc = layoutMain();
   const data = await getInfo();
-  
-  setLocation(doc, data)
+
+  setLocation(doc, data);
+  setCurrent(doc, data);
 })();

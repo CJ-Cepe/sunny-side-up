@@ -26,19 +26,24 @@ async function getInfo() {
   //get location & time details
   const country = data.location.country;
   const area = data.location.name;
-  console.log(data.current.is_day)
   const { date, time, day, isDay } = extractDate(data.location.localtime);
 
-  return { country, area, date, time, day, isDay};
+  //get current Info
+  const status = data.current.condition.text
+  const temperature = data.current.temp_c
+  const feelsLike = data.current.feelslike_c
+  const humidity = 
+
+  return { country, area, date, time, day, isDay };
 }
 
 //pure-helper
 function extractDate(localtime) {
   const [date, time] = localtime.split(" ");
   const day = getDayEquivalent(date);
-  const isDay = time.split(":")[0] >= 12 ? 'pm':'am'
+  const isDay = time.split(":")[0] >= 12 ? "pm" : "am";
 
-  return { date, day, time, isDay};
+  return { date, day, time, isDay };
 }
 
 //pure-helper
