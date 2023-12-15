@@ -1,9 +1,11 @@
+import { createDocu } from "./createDocumentStructure";
 import { getData, getInfo } from "./dataRetriever";
-import { layoutMain, setLocation } from "./layoutManager";
+import { setLocation, setCurrent } from "./layoutManager";
+
 import "./style.css";
 
 (async function () {
-  const doc = layoutMain();
+  const doc = createDocu();
   const data = await getInfo();
 
   setLocation(doc, data);
