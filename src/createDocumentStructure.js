@@ -1,6 +1,9 @@
 /*
   For creating html Elements
 */
+
+import arrow from "./assets/arrow.svg";
+
 function createDocu() {
   const containers = createMainContainers();
   const location = setLocationElements(containers.locationCont);
@@ -8,7 +11,9 @@ function createDocu() {
     containers.currentWeatherCont,
   );
 
-  return { location, currentWeather };
+  const windInfo = setWindInfoElements(containers.windInfoCont);
+
+  return { location, currentWeather, windInfo };
 }
 
 function createMainContainers() {
@@ -101,5 +106,40 @@ function setCurrentWeatherElements(currentWeatherCont) {
     precipitation,
     pressure,
   };
+}
+
+function setWindInfoElements(windInfoCont) {
+  const windCont = document.createElement("div");
+  const gustCont = document.createElement("div");
+  const degreeCont = document.createElement("div");
+  const uvIndexCont = document.createElement("div");
+
+  const windLabel = document.createElement("p");
+  const windValue = document.createElement("p");
+  const gustLabel = document.createElement("p");
+  const gustValue = document.createElement("p");
+  const degreeLabel = document.createElement("p");
+  const degreeValue = new Image();
+  const uvIndexLabel = document.createElement("p");
+  const uvIndexValue = document.createElement("p");
+
+  windInfoCont.append(windCont, gustCont, degreeCont, uvIndexCont);
+  windCont.append(windLabel, windValue);
+  gustCont.append(gustLabel, gustValue);
+  degreeCont.append(degreeLabel, degreeValue);
+  uvIndexCont.append(uvIndexLabel, uvIndexValue);
+
+  //To transfer - add label contents
+  windLabel.textContent = "Wind";
+  gustLabel.textContent = "Gust";
+  degreeLabel.textContent = "Degree";
+  uvIndexLabel.textContent = "UV";
+
+  degreeValue.src = arrow;
+  degreeValue.width = "50"
+  degreeValue.height = "100"
+  //add class windCont
+
+  return { wind: windValue, gust: gustValue, degree: degreeValue, uvIndex: uvIndexValue };
 }
 export { createDocu };

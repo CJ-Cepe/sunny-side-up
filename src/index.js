@@ -1,6 +1,6 @@
 import { createDocu } from "./createDocumentStructure";
 import { getData, getInfo } from "./dataRetriever";
-import { setLocation, setCurrent } from "./layoutManager";
+import { setLocation, setCurrent, setWind } from "./layoutManager";
 
 import "./style.css";
 
@@ -10,4 +10,5 @@ import "./style.css";
 
   setLocation(doc, data);
   setCurrent(doc, data);
+  setWind(doc, data);
 })();

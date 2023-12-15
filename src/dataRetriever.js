@@ -11,7 +11,7 @@ async function fetchData() {
 
   try {
     const response = await fetch(
-      `${baseUrl}${forcast}?key=${key}&q=canada&days=3`,
+      `${baseUrl}${forcast}?key=${key}&q=dubai&days=3`,
     );
     const data = await response.json();
     console.log(data);
@@ -26,8 +26,18 @@ async function getInfo() {
   const data = await fetchData();
   const location = getLocationInfo(data);
   const currentWeather = getCurrentWeatherInfo(data);
+  const windInfo = getWindInfo(data);
 
-  return { location, currentWeather };
+  return { location, currentWeather, windInfo };
+}
+
+function getWindInfo(data) {
+  const wind = data.current.wind_mph;
+  const gust = data.current.gust_mph;
+  const degree = data.current.wind_degree;
+  const uvIndex = data.current.uv;
+
+  return { wind, gust, degree, uvIndex };
 }
 
 function getCurrentWeatherInfo(data) {
