@@ -2,6 +2,12 @@
   For setting html elements text values
 */
 
+function updateContent(doc, data){
+  setLocation(doc, data);
+  setCurrent(doc, data);
+  setWind(doc, data);
+}
+
 function setLocation(doc, data) {
   doc.location.country.textContent = data.location.country;
   doc.location.area.textContent = data.location.area;
@@ -31,10 +37,8 @@ function setCurrent(doc, data) {
 function setWind(doc, data) {
   doc.windInfo.wind.textContent = data.windInfo.wind;
   doc.windInfo.gust.textContent = data.windInfo.gust;
-  doc.windInfo.degree.style.transform = `rotate(${data.windInfo.degree}deg)`
+  doc.windInfo.degree.style.transform = `rotate(${data.windInfo.degree}deg)`;
   doc.windInfo.uvIndex.textContent = data.windInfo.uvIndex;
-  
-
 }
 
-export { setLocation, setCurrent, setWind };
+export { updateContent };

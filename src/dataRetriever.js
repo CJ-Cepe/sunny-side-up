@@ -1,17 +1,38 @@
 /*
   Fetches data & extract Information 
 */
-async function fetchData() {
+
+class Fetch{
+  
+}
+
+
+async function fetchData(place='dubai') {
   const baseUrl = "http://api.weatherapi.com/v1/";
   const key = "c6bbf07487324ab7956102416231012";
-  const api = "current.json";
-  const search = "search.json";
   const forcast = "forecast.json";
-  const history = "history.json";
+
 
   try {
     const response = await fetch(
-      `${baseUrl}${forcast}?key=${key}&q=dubai&days=3`,
+      `${baseUrl}${forcast}?key=${key}&q=${place}&days=3`,
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log("Error:" + error);
+  }
+}
+
+async function fetchAreaList(place){
+  const baseUrl = "http://api.weatherapi.com/v1/";
+  const key = "c6bbf07487324ab7956102416231012";
+  const search = "search.json";
+
+  try {
+    const response = await fetch(
+      `${baseUrl}${search}?key=${key}&q=${place}`,
     );
     const data = await response.json();
     console.log(data);
@@ -22,8 +43,8 @@ async function fetchData() {
 }
 
 //pure-getter
-async function getInfo() {
-  const data = await fetchData();
+async function getInfo(place) {
+  const data = await fetchData(place);
   const location = getLocationInfo(data);
   const currentWeather = getCurrentWeatherInfo(data);
   const windInfo = getWindInfo(data);
@@ -95,4 +116,4 @@ function getLocationInfo(data) {
   }
 }
 
-export { getInfo };
+export { getInfo, fetchAreaList };

@@ -3,6 +3,7 @@
 */
 
 import arrow from "./assets/arrow.svg";
+import { fetchAreaList } from "./dataRetriever";
 
 function createDocu() {
   const containers = createMainContainers();
@@ -10,10 +11,11 @@ function createDocu() {
   const currentWeather = setCurrentWeatherElements(
     containers.currentWeatherCont,
   );
-
   const windInfo = setWindInfoElements(containers.windInfoCont);
+  const search = setSearchElements(containers.searchCont)
 
-  return { location, currentWeather, windInfo };
+
+  return { location, currentWeather, windInfo, search };
 }
 
 function createMainContainers() {
@@ -136,10 +138,53 @@ function setWindInfoElements(windInfoCont) {
   uvIndexLabel.textContent = "UV";
 
   degreeValue.src = arrow;
-  degreeValue.width = "50"
-  degreeValue.height = "100"
+  degreeValue.width = "50";
+  degreeValue.height = "100";
   //add class windCont
 
-  return { wind: windValue, gust: gustValue, degree: degreeValue, uvIndex: uvIndexValue };
+  return {
+    wind: windValue,
+    gust: gustValue,
+    degree: degreeValue,
+    uvIndex: uvIndexValue,
+  };
 }
+
+function setSearchElements(searchCont) {
+  const form = document.createElement("form");
+  const input = document.createElement("input");
+  const button = document.createElement("button");
+  const datalist = document.createElement("datalist")
+  
+
+  searchCont.appendChild(form);
+  form.append(input, button, datalist);
+
+  input.setAttribute('list', "areas");
+  input.placeholder = "Enter Country"
+  input.required = "true"
+  button.textContent = "Search"
+  button.type = "submit"
+  datalist.id = "areas"
+
+  //search bar suggestion
+  input.addEventListener('input', async ()=>{
+    datalist.textContent=""
+    //check if input value is empty or not
+    if(input.value.length !== 0){
+      const searchList = await fetchAreaList(input.value)
+      //check if returned array is empty
+      if(searchList.length !== 0){
+        console.log(searchList.length)
+        searchList.forEach(element => {
+          let option = document.createElement('option')
+          option.value = element.name
+          datalist.appendChild(option)
+        })
+      }
+    }
+  })
+  return {input, button};
+}
+
 export { createDocu };
