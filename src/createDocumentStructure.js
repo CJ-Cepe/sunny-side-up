@@ -3,17 +3,17 @@
 */
 
 import arrow from "./assets/arrow.svg";
-import { fetchAreaList } from "./dataRetriever";
+import { getAreaList } from "./dataRetriever";
 
 function createDocu() {
   const containers = createMainContainers();
+  setLogoElements(containers.logoCont);
   const location = setLocationElements(containers.locationCont);
   const currentWeather = setCurrentWeatherElements(
     containers.currentWeatherCont,
   );
   const windInfo = setWindInfoElements(containers.windInfoCont);
-  const search = setSearchElements(containers.searchCont)
-
+  const search = setSearchElements(containers.searchCont);
 
   return { location, currentWeather, windInfo, search };
 }
@@ -64,6 +64,14 @@ function createMainContainers() {
       container.classList.add("cont");
     });
   }
+}
+
+function setLogoElements(logoCont){
+  const image = new Image();
+  const content = document.createElement('p')
+  content.textContent = "SunnySideUp"
+
+  logoCont.append(image, content)
 }
 
 function setLocationElements(locationCont) {
@@ -154,37 +162,36 @@ function setSearchElements(searchCont) {
   const form = document.createElement("form");
   const input = document.createElement("input");
   const button = document.createElement("button");
-  const datalist = document.createElement("datalist")
-  
+  const datalist = document.createElement("datalist");
 
   searchCont.appendChild(form);
   form.append(input, button, datalist);
 
-  input.setAttribute('list', "areas");
-  input.placeholder = "Enter Country"
-  input.required = "true"
-  button.textContent = "Search"
-  button.type = "submit"
-  datalist.id = "areas"
+  input.setAttribute("list", "areas");
+  input.placeholder = "Enter Country";
+  input.required = "true";
+  button.textContent = "Search";
+  button.type = "submit";
+  datalist.id = "areas";
 
   //search bar suggestion
-  input.addEventListener('input', async ()=>{
-    datalist.textContent=""
+  input.addEventListener("input", async () => {
+    datalist.textContent = "";
     //check if input value is empty or not
-    if(input.value.length !== 0){
-      const searchList = await fetchAreaList(input.value)
+    if (input.value.length !== 0) {
+      const searchList = await getAreaList  (input.value);
       //check if returned array is empty
-      if(searchList.length !== 0){
-        console.log(searchList.length)
-        searchList.forEach(element => {
-          let option = document.createElement('option')
-          option.value = element.name
-          datalist.appendChild(option)
-        })
+      if (searchList.length !== 0) {
+        console.log(searchList.length);
+        searchList.forEach((element) => {
+          let option = document.createElement("option");
+          option.value = element.name;
+          datalist.appendChild(option);
+        });
       }
     }
-  })
-  return {input, button};
+  });
+  return { input, button };
 }
 
 export { createDocu };

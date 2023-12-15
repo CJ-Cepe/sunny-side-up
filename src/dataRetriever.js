@@ -2,54 +2,51 @@
   Fetches data & extract Information 
 */
 
-class Fetch{
-  
-}
-
-
-async function fetchData(place='dubai') {
-  const baseUrl = "http://api.weatherapi.com/v1/";
-  const key = "c6bbf07487324ab7956102416231012";
-  const forcast = "forecast.json";
-
-
-  try {
-    const response = await fetch(
-      `${baseUrl}${forcast}?key=${key}&q=${place}&days=3`,
-    );
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log("Error:" + error);
+class WeatherAPI {
+  constructor() {
+    this.baseUrl = "http://api.weatherapi.com/v1/";
+    this.key = "c6bbf07487324ab7956102416231012";
   }
-}
 
-async function fetchAreaList(place){
-  const baseUrl = "http://api.weatherapi.com/v1/";
-  const key = "c6bbf07487324ab7956102416231012";
-  const search = "search.json";
-
-  try {
-    const response = await fetch(
-      `${baseUrl}${search}?key=${key}&q=${place}`,
-    );
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log("Error:" + error);
+  async fetchData(api, area = "dubai", days = 3) {
+    try {
+      const response = await fetch(
+        `${this.baseUrl}${api}?key=${this.key}&q=${area}&days=${days}`,
+      );
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error:" + error);
+    }
   }
-}
+
+  async fetchForecast(area) {
+    return this.fetchData("forecast.json", area);
+  }
+
+  fetchAreaList(area) {
+    return this.fetchData("search.json", area, 1);
+  }
+} // end
 
 //pure-getter
-async function getInfo(place) {
-  const data = await fetchData(place);
+async function getForecast(area) {
+  const weatherAPI = new WeatherAPI();
+  const data = await weatherAPI.fetchForecast(area);
+  console.log(data)
   const location = getLocationInfo(data);
   const currentWeather = getCurrentWeatherInfo(data);
   const windInfo = getWindInfo(data);
 
   return { location, currentWeather, windInfo };
+}
+
+async function getAreaList(area) {
+  const weatherAPI = new WeatherAPI();
+  const data = await weatherAPI.fetchAreaList(area);
+
+  return data;
 }
 
 function getWindInfo(data) {
@@ -116,4 +113,4 @@ function getLocationInfo(data) {
   }
 }
 
-export { getInfo, fetchAreaList };
+export { getForecast, getAreaList };

@@ -2,7 +2,7 @@
   For setting html elements text values
 */
 
-function updateContent(doc, data){
+function updateContent(doc, data) {
   setLocation(doc, data);
   setCurrent(doc, data);
   setWind(doc, data);
