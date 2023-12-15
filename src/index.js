@@ -2,16 +2,28 @@ import { createDocu } from "./createDocumentStructure";
 import { getForecast } from "./dataRetriever";
 import { updateContent } from "./layoutManager";
 
+import { getPosition } from "./locationRetriever";
+
 import "./style.css";
 
 (async function () {
   const doc = createDocu();
-  const data = await getForecast();
+  const position = await getPosition()
+  const data = await getForecast(position);
   updateContent(doc, data);
 
+  //what if empty input and clicked
   doc.search.button.addEventListener("click", async (event) => {
     event.preventDefault();
     const data = await getForecast(doc.search.input.value);
     updateContent(doc, data);
   });
+
+
+  //what if user denied
+  doc.getLocation.getLocationBtn.addEventListener("click", async () => {
+    const position = await getPosition()
+    const data = await getForecast(position);
+    updateContent(doc, data);
+  })
 })();

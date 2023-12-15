@@ -34,7 +34,7 @@ class WeatherAPI {
 async function getForecast(area) {
   const weatherAPI = new WeatherAPI();
   const data = await weatherAPI.fetchForecast(area);
-  console.log(data)
+  console.log(data);
   const location = getLocationInfo(data);
   const currentWeather = getCurrentWeatherInfo(data);
   const windInfo = getWindInfo(data);

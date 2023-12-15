@@ -14,8 +14,9 @@ function createDocu() {
   );
   const windInfo = setWindInfoElements(containers.windInfoCont);
   const search = setSearchElements(containers.searchCont);
+  const getLocation = setLocationCont(containers.getLocationCont)
 
-  return { location, currentWeather, windInfo, search };
+  return { location, currentWeather, windInfo, search, getLocation };
 }
 
 function createMainContainers() {
@@ -23,7 +24,7 @@ function createMainContainers() {
   const mainCont = document.createElement("main");
 
   const logoCont = document.createElement("div");
-  const emptyCont = document.createElement("div");
+  const getLocationCont = document.createElement("div");
   const currentWeatherCont = document.createElement("div");
   const locationCont = document.createElement("div");
   const searchCont = document.createElement("div");
@@ -34,7 +35,7 @@ function createMainContainers() {
   body.appendChild(mainCont);
   mainCont.append(
     logoCont,
-    emptyCont,
+    getLocationCont,
     currentWeatherCont,
     locationCont,
     searchCont,
@@ -47,7 +48,7 @@ function createMainContainers() {
 
   return {
     logoCont,
-    emptyCont,
+    getLocationCont,
     currentWeatherCont,
     locationCont,
     searchCont,
@@ -66,12 +67,20 @@ function createMainContainers() {
   }
 }
 
-function setLogoElements(logoCont){
+function setLogoElements(logoCont) {
   const image = new Image();
-  const content = document.createElement('p')
-  content.textContent = "SunnySideUp"
+  const content = document.createElement("p");
+  content.textContent = "SunnySideUp";
 
-  logoCont.append(image, content)
+  logoCont.append(image, content);
+}
+
+function setLocationCont(getLocationCont){
+  const getLocationBtn = document.createElement('button')
+  getLocationBtn.textContent = "Get Location"
+  getLocationCont.appendChild(getLocationBtn)
+
+  return {getLocationBtn}
 }
 
 function setLocationElements(locationCont) {
@@ -167,6 +176,7 @@ function setSearchElements(searchCont) {
   searchCont.appendChild(form);
   form.append(input, button, datalist);
 
+  input.type = "input"
   input.setAttribute("list", "areas");
   input.placeholder = "Enter Country";
   input.required = "true";
@@ -179,7 +189,7 @@ function setSearchElements(searchCont) {
     datalist.textContent = "";
     //check if input value is empty or not
     if (input.value.length !== 0) {
-      const searchList = await getAreaList  (input.value);
+      const searchList = await getAreaList(input.value);
       //check if returned array is empty
       if (searchList.length !== 0) {
         console.log(searchList.length);
