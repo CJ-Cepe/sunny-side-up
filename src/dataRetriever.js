@@ -49,6 +49,7 @@ function getNextDayForecast(data) {
     day.push([
       data.forecast.forecastday[i].date,
       data.forecast.forecastday[i].day.condition.text,
+      data.forecast.forecastday[i].day.condition.icon,
       data.forecast.forecastday[i].day.avgtemp_c,
       data.forecast.forecastday[i].day.avghumidity,
       data.forecast.forecastday[i].day.maxwind_mph,

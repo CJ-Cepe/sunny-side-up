@@ -25,7 +25,8 @@ function setCurrent(doc, data) {
   doc.currentWeather.feelsLike.textContent = data.currentWeather.feelsLike;
   doc.currentWeather.cloud.textContent = data.currentWeather.cloud;
   doc.currentWeather.humidity.textContent = data.currentWeather.humidity;
-  doc.currentWeather.precipitation.textContent = data.currentWeather.precipitation;
+  doc.currentWeather.precipitation.textContent =
+    data.currentWeather.precipitation;
   doc.currentWeather.pressure.textContent = data.currentWeather.pressure;
 }
 
@@ -40,8 +41,13 @@ function setWind(doc, data) {
 function setForecast(doc, data) {
   console.log(data);
   for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 8; j++) {
-      doc.forecast[i][j].textContent = data.foreCast[i][j];
+    for (let j = 0; j < 9; j++) {
+      if(doc.forecast[i][j].tagName != 'IMG'){
+        doc.forecast[i][j].textContent = data.foreCast[i][j];
+      } else {
+        doc.forecast[i][j].src = data.foreCast[i][j];
+      }
+      
     }
   }
 }
