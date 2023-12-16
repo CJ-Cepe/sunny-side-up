@@ -108,17 +108,44 @@ function setCurrentWeatherElements(currentWeatherCont) {
   const bottomCont = document.createElement("div");
   const leftCont = document.createElement("div");
   const rightCont = document.createElement("div");
-  const temperature = document.createElement("p");
-  const feelsLike = document.createElement("p");
-  const cloud = document.createElement("p");
-  const humidity = document.createElement("p");
-  const precipitation = document.createElement("p");
-  const pressure = document.createElement("p");
+
+  const tempLabel = document.createElement("p");
+  const temperature = document.createElement("span");
+  tempLabel.textContent = 'Temperature: '
+  tempLabel.appendChild(temperature)
+
+  const feelsLikeLabel = document.createElement("p");
+  const feelsLike = document.createElement("span");
+  feelsLikeLabel.textContent = 'Feels Like: '
+  feelsLikeLabel.appendChild(feelsLike)
+
+  const cloudLabel = document.createElement("p");
+  const cloud = document.createElement("span");
+  cloudLabel.textContent = 'Cloud: '
+  cloudLabel.appendChild(cloud)
+
+  const humidityLabel = document.createElement("p");
+  const humidity = document.createElement("span");
+  humidityLabel.textContent = 'Humidity: '
+  humidityLabel.appendChild(humidity)
+
+ 
+  const precipitationLabel = document.createElement("p");
+  const precipitation = document.createElement("span");
+  precipitationLabel.textContent = 'Precipitation: '
+  precipitationLabel.appendChild(precipitation)
+
+
+  const pressureLabel = document.createElement("p");
+  const pressure = document.createElement("span");
+  pressureLabel.textContent = 'Pressure: '
+  pressureLabel.appendChild(pressure)
+
 
   currentWeatherCont.append(condition, image, bottomCont);
   bottomCont.append(leftCont, rightCont);
-  rightCont.append(feelsLike, cloud, humidity, precipitation, pressure);
-  leftCont.append(temperature);
+  rightCont.append(feelsLikeLabel, cloudLabel, humidityLabel, precipitationLabel, pressureLabel);
+  leftCont.append(tempLabel);
 
   return {
     condition,
@@ -220,7 +247,7 @@ function setNextDayElements(days) {
     "chance of rain: ",
     "chance of snow",
   ];
-  let nextDay = []
+  let nextDay = [];
   for (let i = 0; i < 3; i++) {
     let elements = [];
     const date = document.createElement("p");
@@ -235,8 +262,8 @@ function setNextDayElements(days) {
       days[i].appendChild(p);
       elements.push(span);
     }
-    nextDay.push(elements)
+    nextDay.push(elements);
   }
-  console.log(nextDay)
+  console.log(nextDay);
   return nextDay;
 }

@@ -21,17 +21,12 @@ function setLocation(doc, data) {
 //condition, image, temperature, feelsLike, cloud, humidity, precipitation, pressure
 function setCurrent(doc, data) {
   doc.currentWeather.condition.textContent = data.currentWeather.status;
-  doc.currentWeather.temperature.textContent =
-    "Temperature: " + data.currentWeather.temperature;
-  doc.currentWeather.feelsLike.textContent =
-    "Feels Like: " + data.currentWeather.feelsLike;
-  doc.currentWeather.cloud.textContent = "Cloud: " + data.currentWeather.cloud;
-  doc.currentWeather.humidity.textContent =
-    "Humidity: " + data.currentWeather.humidity;
-  doc.currentWeather.precipitation.textContent =
-    "Precipitation: " + data.currentWeather.precipitation;
-  doc.currentWeather.pressure.textContent =
-    "Pressure: " + data.currentWeather.pressure;
+  doc.currentWeather.temperature.textContent = data.currentWeather.temperature;
+  doc.currentWeather.feelsLike.textContent = data.currentWeather.feelsLike;
+  doc.currentWeather.cloud.textContent = data.currentWeather.cloud;
+  doc.currentWeather.humidity.textContent = data.currentWeather.humidity;
+  doc.currentWeather.precipitation.textContent = data.currentWeather.precipitation;
+  doc.currentWeather.pressure.textContent = data.currentWeather.pressure;
 }
 
 //return {wind, gust, degree, uvIndex}
@@ -42,11 +37,11 @@ function setWind(doc, data) {
   doc.windInfo.uvIndex.textContent = data.windInfo.uvIndex;
 }
 
-function setForecast(doc, data){
-  console.log(data)
-  for(let i = 0; i < 3; i++){
-    for(let j = 0; j < 8; j++){
-      doc.forecast[i][j].textContent = data.foreCast[i][j]
+function setForecast(doc, data) {
+  console.log(data);
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 8; j++) {
+      doc.forecast[i][j].textContent = data.foreCast[i][j];
     }
   }
 }
