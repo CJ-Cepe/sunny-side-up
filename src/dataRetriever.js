@@ -48,8 +48,9 @@ function getNextDayForecast(data) {
   for (let i = 0; i < data.forecast.forecastday.length; i++) {
     day.push([
       formatDate(data.forecast.forecastday[i].date),
-      data.forecast.forecastday[i].day.condition.text,
+      getDayEquivalent(data.forecast.forecastday[i].date),
       data.forecast.forecastday[i].day.condition.icon,
+      data.forecast.forecastday[i].day.condition.text,
       data.forecast.forecastday[i].day.avgtemp_c,
       data.forecast.forecastday[i].day.avghumidity,
       data.forecast.forecastday[i].day.maxwind_mph,
@@ -106,41 +107,40 @@ function getLocationInfo(data) {
   const { date, time, day, isDay } = extractDate(data.location.localtime);
 
   return { country, area, date, time, day, isDay };
-
 }
 
-  //pure-helper
-  function extractDate(localtime) {
-    let [date, time] = localtime.split(" ");
-    const day = getDayEquivalent(date);
-    date = formatDate(date);
-    const isDay = time.split(":")[0] >= 12 ? "pm" : "am";
+//pure-helper
+function extractDate(localtime) {
+  let [date, time] = localtime.split(" ");
+  const day = getDayEquivalent(date);
+  date = formatDate(date);
+  const isDay = time.split(":")[0] >= 12 ? "pm" : "am";
 
-    return { date, day, time, isDay };
-  }
+  return { date, day, time, isDay };
+}
 
-  //pure-helper
-  function getDayEquivalent(date) {
-    const dateObj = new Date(date);
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const dayName = days[dateObj.getDay()];
-    return dayName;
-  }
-  
-  function formatDate(date) {
-    const dateObj = new Date(date);
-    const options = { month: "long", day: "numeric", year: "numeric" };
-    const formattedDate = dateObj.toLocaleDateString("en-US", options);
+//pure-helper
+function getDayEquivalent(date) {
+  const dateObj = new Date(date);
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayName = days[dateObj.getDay()];
+  return dayName;
+}
 
-    return formattedDate;
-  }
+function formatDate(date) {
+  const dateObj = new Date(date);
+  const options = { month: "long", day: "numeric", year: "numeric" };
+  const formattedDate = dateObj.toLocaleDateString("en-US", options);
+
+  return formattedDate;
+}
 
 export { getForecast, getAreaList };

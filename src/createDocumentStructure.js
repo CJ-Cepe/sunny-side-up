@@ -254,10 +254,11 @@ function setNextDayElements(days) {
   for (let i = 0; i < 3; i++) {
     let elements = [];
     const date = document.createElement("p");
+    const day = document.createElement("p");
     const status = document.createElement("p");
     const image = document.createElement("img");
-    elements.push(date, status, image);
-    days[i].append(date, status, image);
+    elements.push(date, day, image, status);
+    days[i].append(date, day, image, status);
     for (let j = 0; j < 6; j++) {
       const p = document.createElement("p");
       const span = document.createElement("span");
