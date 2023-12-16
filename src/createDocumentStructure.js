@@ -255,7 +255,7 @@ function setNextDayElements(days) {
     let elements = [];
     const date = document.createElement("p");
     const status = document.createElement("p");
-    const image = document.createElement('img')
+    const image = document.createElement("img");
     elements.push(date, status, image);
     days[i].append(date, status, image);
     for (let j = 0; j < 6; j++) {

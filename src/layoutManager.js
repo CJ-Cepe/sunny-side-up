@@ -42,12 +42,11 @@ function setForecast(doc, data) {
   console.log(data);
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 9; j++) {
-      if(doc.forecast[i][j].tagName != 'IMG'){
+      if (doc.forecast[i][j].tagName != "IMG") {
         doc.forecast[i][j].textContent = data.foreCast[i][j];
       } else {
         doc.forecast[i][j].src = data.foreCast[i][j];
       }
-      
     }
   }
 }
