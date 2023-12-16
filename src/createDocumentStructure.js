@@ -14,9 +14,14 @@ function createDocu() {
   );
   const windInfo = setWindInfoElements(containers.windInfoCont);
   const search = setSearchElements(containers.searchCont);
-  const getLocation = setLocationCont(containers.getLocationCont)
+  const getLocation = setLocationCont(containers.getLocationCont);
+  const forecast = setNextDayElements([
+    containers.nextDayWeatherCont1,
+    containers.nextDayWeatherCont2,
+    containers.nextDayWeatherCont3,
+  ]);
 
-  return { location, currentWeather, windInfo, search, getLocation };
+  return { location, currentWeather, windInfo, search, getLocation, forecast };
 }
 
 function createMainContainers() {
@@ -75,12 +80,12 @@ function setLogoElements(logoCont) {
   logoCont.append(image, content);
 }
 
-function setLocationCont(getLocationCont){
-  const getLocationBtn = document.createElement('button')
-  getLocationBtn.textContent = "Get Location"
-  getLocationCont.appendChild(getLocationBtn)
+function setLocationCont(getLocationCont) {
+  const getLocationBtn = document.createElement("button");
+  getLocationBtn.textContent = "Get Location";
+  getLocationCont.appendChild(getLocationBtn);
 
-  return {getLocationBtn}
+  return { getLocationBtn };
 }
 
 function setLocationElements(locationCont) {
@@ -176,7 +181,7 @@ function setSearchElements(searchCont) {
   searchCont.appendChild(form);
   form.append(input, button, datalist);
 
-  input.type = "input"
+  input.type = "input";
   input.setAttribute("list", "areas");
   input.placeholder = "Enter Country";
   input.required = "true";
@@ -205,3 +210,33 @@ function setSearchElements(searchCont) {
 }
 
 export { createDocu };
+
+function setNextDayElements(days) {
+  const content = [
+    "temperature: ",
+    "humidity: ",
+    "wind: ",
+    "UV index: ",
+    "chance of rain: ",
+    "chance of snow",
+  ];
+  let nextDay = []
+  for (let i = 0; i < 3; i++) {
+    let elements = [];
+    const date = document.createElement("p");
+    const status = document.createElement("p");
+    elements.push(date, status);
+    days[i].append(date, status);
+    for (let j = 0; j < 6; j++) {
+      const p = document.createElement("p");
+      const span = document.createElement("span");
+      p.textContent = content[j];
+      p.appendChild(span);
+      days[i].appendChild(p);
+      elements.push(span);
+    }
+    nextDay.push(elements)
+  }
+  console.log(nextDay)
+  return nextDay;
+}

@@ -38,8 +38,27 @@ async function getForecast(area) {
   const location = getLocationInfo(data);
   const currentWeather = getCurrentWeatherInfo(data);
   const windInfo = getWindInfo(data);
+  const foreCast = getNextDayForecast(data);
 
-  return { location, currentWeather, windInfo };
+  return { location, currentWeather, windInfo, foreCast };
+}
+
+function getNextDayForecast(data){
+  const day = [];
+  for (let i = 0; i < data.forecast.forecastday.length; i++) {
+    day.push([
+      data.forecast.forecastday[i].date, 
+      data.forecast.forecastday[i].day.condition.text,
+      data.forecast.forecastday[i].day.avgtemp_c,
+      data.forecast.forecastday[i].day.avghumidity,
+      data.forecast.forecastday[i].day.maxwind_mph,
+      data.forecast.forecastday[i].day.uv,
+      data.forecast.forecastday[i].day.daily_chance_of_rain,
+      data.forecast.forecastday[i].day.daily_chance_of_snow,
+    ])
+  }
+  console.log(...day)
+  return day
 }
 
 async function getAreaList(area) {

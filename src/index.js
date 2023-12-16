@@ -8,7 +8,7 @@ import "./style.css";
 
 (async function () {
   const doc = createDocu();
-  const position = await getPosition()
+  const position = await getPosition();
   const data = await getForecast(position);
   updateContent(doc, data);
 
@@ -19,11 +19,10 @@ import "./style.css";
     updateContent(doc, data);
   });
 
-
   //what if user denied
   doc.getLocation.getLocationBtn.addEventListener("click", async () => {
-    const position = await getPosition()
+    const position = await getPosition();
     const data = await getForecast(position);
     updateContent(doc, data);
-  })
+  });
 })();

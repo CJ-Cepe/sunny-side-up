@@ -6,6 +6,7 @@ function updateContent(doc, data) {
   setLocation(doc, data);
   setCurrent(doc, data);
   setWind(doc, data);
+  setForecast(doc, data);
 }
 
 function setLocation(doc, data) {
@@ -41,4 +42,12 @@ function setWind(doc, data) {
   doc.windInfo.uvIndex.textContent = data.windInfo.uvIndex;
 }
 
+function setForecast(doc, data){
+  console.log(data)
+  for(let i = 0; i < 3; i++){
+    for(let j = 0; j < 8; j++){
+      doc.forecast[i][j].textContent = data.foreCast[i][j]
+    }
+  }
+}
 export { updateContent };
