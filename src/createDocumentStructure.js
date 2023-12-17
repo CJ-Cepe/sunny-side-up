@@ -80,6 +80,7 @@ function setLogoElements(logoCont) {
   logoCont.append(image, content);
 }
 
+//for location
 function setLocationCont(getLocationCont) {
   const getLocationBtn = document.createElement("button");
   getLocationBtn.textContent = "Get Location";
@@ -95,10 +96,11 @@ function setLocationElements(locationCont) {
   const day = document.createElement("p");
   const date = document.createElement("p");
   const time = document.createElement("p");
+  const img = document.createElement('img')
 
-  locationCont.append(country, area, day, date, time);
+  locationCont.append(country, area, day, date, time, img);
 
-  return { country, area, day, date, time };
+  return { country, area, day, date, time, img };
 }
 
 function setCurrentWeatherElements(currentWeatherCont) {

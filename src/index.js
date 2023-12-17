@@ -4,7 +4,7 @@ import { updateContent } from "./layoutManager";
 
 import { getPosition } from "./locationRetriever";
 
-import "./style.css";
+import "./styles/style.css";
 
 (async function () {
   const doc = createDocu();
