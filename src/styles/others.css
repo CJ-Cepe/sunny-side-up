@@ -30,6 +30,8 @@ main > div:nth-child(5)  img {
     width: 25px;
 }
 
+
+/* Get Location Container*/
 main > div:nth-child(2) {
    display: flex;
    align-items: center;
@@ -53,3 +55,20 @@ main > div:nth-child(2) button::before {
     height: 30px;
     content: "";
 }
+
+
+/* Logo Container */
+main > div:nth-child(1) {
+    font-size: max(1rem, 1.5cqi);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+ 
+main > div:nth-child(1) img {
+    width: 35px;
+    height: 35px;
+    background-color: gray;
+}
+ 
