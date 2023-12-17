@@ -112,7 +112,7 @@ function setCurrentWeatherElements(currentWeatherCont) {
   const bottomCont = document.createElement("div");
   const leftCont = document.createElement("div");
   const rightCont = document.createElement("div");
-  const divider = document.createElement('div')
+  const divider = document.createElement("div");
 
   const tempLabel = document.createElement("p");
   const temperature = document.createElement("span");

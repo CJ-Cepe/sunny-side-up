@@ -16,6 +16,11 @@ body {
     width: 100vw;
     height: 100vh;
     max-width: 100%;
+
+    /*background: rgb(255,204,112); */
+    background: linear-gradient(45deg, rgba(255,204,112,1) 0%, rgba(200,80,192,1) 50%, rgba(65,88,208,1) 100%);
+    background-size: 400% 400%;
+    animation: gradient-anim 15s ease infinite;
 }
 
 main {
@@ -33,6 +38,14 @@ main {
     background-color: var(--gray1);
     border-radius: 5px;
     font-family: var(--font1);
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* current time container */
@@ -71,3 +84,14 @@ main > div:nth-child(9) {
 }
 
 
+@keyframes gradient-anim {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
