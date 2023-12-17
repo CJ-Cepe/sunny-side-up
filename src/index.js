@@ -7,6 +7,7 @@ import { getPosition } from "./locationRetriever";
 import "./styles/style.css";
 import "./styles/location.css";
 import "./styles/forecast.css";
+import "./styles/wind.css";
 
 (async function () {
   const doc = createDocu();

@@ -1,0 +1,33 @@
+/* style for Wind Container */
+
+main > div:nth-child(6) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+
+    font-size: max(1.2rem, 1.5cqi);
+}
+
+main > div:nth-child(6) div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > div:nth-child(6) div > p {
+    font-weight: bold;
+}
+
+main > div:nth-child(6) div > p:last-child {
+    color: gray;
+    margin-top: 1.5rem;
+}
+
+main > div:nth-child(6) div img {
+    width: 30px;
+    height: 30px;
+    margin-top: 1.5rem;
+    transition: transform 0.5s ease;
+}
