@@ -112,10 +112,11 @@ function setCurrentWeatherElements(currentWeatherCont) {
   const bottomCont = document.createElement("div");
   const leftCont = document.createElement("div");
   const rightCont = document.createElement("div");
+  const divider = document.createElement('div')
 
   const tempLabel = document.createElement("p");
   const temperature = document.createElement("span");
-  tempLabel.textContent = "Temperature: ";
+  tempLabel.textContent = "Temperature";
   tempLabel.appendChild(temperature);
 
   const feelsLikeLabel = document.createElement("p");
@@ -144,7 +145,7 @@ function setCurrentWeatherElements(currentWeatherCont) {
   pressureLabel.appendChild(pressure);
 
   currentWeatherCont.append(condition, image, bottomCont);
-  bottomCont.append(leftCont, rightCont);
+  bottomCont.append(leftCont, divider, rightCont);
   rightCont.append(
     feelsLikeLabel,
     cloudLabel,
