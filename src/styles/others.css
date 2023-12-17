@@ -1,0 +1,31 @@
+/* style for search, get location, and logo */
+
+/* search container */
+main > div:nth-child(5) form{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+} 
+
+
+main > div:nth-child(5)  input {
+   background-color: transparent;
+   border: none;
+   border-bottom: 1.5px solid gray;
+   font-size: 1rem;
+   height: 2rem;
+   width: 60%;
+   
+   outline: none;
+}
+
+main > div:nth-child(5)  button {
+    border: none;
+    background-color: transparent;
+}
+
+main > div:nth-child(5)  img {
+    width: 25px;
+}

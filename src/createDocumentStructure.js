@@ -3,6 +3,7 @@
 */
 
 import arrow from "./assets/arrow.svg";
+import search from "./assets/search.svg";
 import { getAreaList } from "./dataRetriever";
 
 function createDocu() {
@@ -209,16 +210,19 @@ function setSearchElements(searchCont) {
   const form = document.createElement("form");
   const input = document.createElement("input");
   const button = document.createElement("button");
+  const img = document.createElement('img');
   const datalist = document.createElement("datalist");
 
   searchCont.appendChild(form);
   form.append(input, button, datalist);
-
+  button.appendChild(img)
+  
   input.type = "input";
   input.setAttribute("list", "areas");
-  input.placeholder = "Enter Country";
+  input.placeholder = "Search Places";
   input.required = "true";
-  button.textContent = "Search";
+  //button.textContent = "Search";
+  img.src = search;
   button.type = "submit";
   datalist.id = "areas";
 
