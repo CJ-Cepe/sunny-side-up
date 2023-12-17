@@ -96,9 +96,10 @@ function setLocationElements(locationCont) {
   const day = document.createElement("p");
   const date = document.createElement("p");
   const time = document.createElement("p");
-  const img = document.createElement('img')
-
-  locationCont.append(country, area, day, date, time, img);
+  const img = document.createElement("img");
+  const left = document.createElement('div')
+  left.append(country, area, day, date, time);
+  locationCont.append(left, img)
 
   return { country, area, day, date, time, img };
 }

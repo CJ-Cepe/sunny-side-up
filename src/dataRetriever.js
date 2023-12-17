@@ -114,7 +114,7 @@ function extractDate(localtime) {
   let [date, time] = localtime.split(" ");
   const day = getDayEquivalent(date);
   date = formatDate(date);
-  const isDay = time.split(":")[0] >= 12 ? "pm" : "am";
+  const isDay = time.split(":")[0] >= 12 ? "PM" : "AM";
 
   return { date, day, time, isDay };
 }

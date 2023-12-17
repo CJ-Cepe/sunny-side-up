@@ -8,7 +8,7 @@
 * {
     margin: 0;
     padding: 0;
-    /* outline: 1px solid red; */
+  /*   outline: 1px solid red;   */
     box-sizing: border-box;
 }
 
@@ -68,24 +68,6 @@ main > div:nth-child(8) {
 main > div:nth-child(9) {
     grid-column: 5 / 6;
     grid-row: 5 / 9;
-}
-
-/* style Location-Cont. contents*/
-main > div:nth-child(4) > p:nth-child(1){
-    font-size: max(1.5rem, 2cqi);
-}
- 
-main > div:nth-child(4) > p:nth-child(2){
-   font-size: max(3rem, 5cqi);
-   font-weight: 700;
-}
-
-main > div:nth-child(4) > p:is(:nth-child(3), :nth-child(4)){
-    font-size: max(1rem, 1.5cqi);
-}
-
-main > div:nth-child(4) > p:nth-child(5){
-    font-size: max(2.5rem, 4cqi);
 }
 
 
