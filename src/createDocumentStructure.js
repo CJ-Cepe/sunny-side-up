@@ -84,7 +84,7 @@ function setLogoElements(logoCont) {
 //for location
 function setLocationCont(getLocationCont) {
   const getLocationBtn = document.createElement("button");
-  getLocationBtn.textContent = "Get Location";
+  getLocationBtn.textContent = "My Location";
   getLocationCont.appendChild(getLocationBtn);
 
   return { getLocationBtn };
@@ -210,13 +210,13 @@ function setSearchElements(searchCont) {
   const form = document.createElement("form");
   const input = document.createElement("input");
   const button = document.createElement("button");
-  const img = document.createElement('img');
+  const img = document.createElement("img");
   const datalist = document.createElement("datalist");
 
   searchCont.appendChild(form);
   form.append(input, button, datalist);
-  button.appendChild(img)
-  
+  button.appendChild(img);
+
   input.type = "input";
   input.setAttribute("list", "areas");
   input.placeholder = "Search Places";
