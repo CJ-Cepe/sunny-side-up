@@ -10,6 +10,7 @@ import "./styles/forecast.css";
 import "./styles/wind.css";
 import "./styles/others.css";
 import "./styles/current.css";
+import "./styles/gradient.css";
 
 (async function () {
   const doc = createDocu();

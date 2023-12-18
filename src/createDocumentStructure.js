@@ -27,6 +27,8 @@ function createDocu() {
 
 function createMainContainers() {
   const body = document.querySelector("body");
+  const gradient = document.createElement("div");
+  gradient.classList.add('gradient')
   const mainCont = document.createElement("main");
 
   const logoCont = document.createElement("div");
@@ -38,7 +40,7 @@ function createMainContainers() {
   const nextDayWeatherCont1 = document.createElement("div");
   const nextDayWeatherCont2 = document.createElement("div");
   const nextDayWeatherCont3 = document.createElement("div");
-  body.appendChild(mainCont);
+  body.append(gradient, mainCont);
   mainCont.append(
     logoCont,
     getLocationCont,

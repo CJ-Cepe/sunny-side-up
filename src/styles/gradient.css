@@ -1,0 +1,21 @@
+:root{
+    --bg-1: hsla(50,98%,62%,1);
+    --bg-img-1: 
+                radial-gradient(at 27% 6%, hsla(41,97%,64%,1) 0px, transparent 70%),
+                radial-gradient(at 71% 53%, hsla(74,90%,76%,1) 0px, transparent 70%),
+                radial-gradient(at 12% 36%, hsla(318,80%,76%,1) 0px, transparent 70%),
+                radial-gradient(at 45% 78%, hsla(297,96%,71%,1) 0px, transparent 70%),
+                radial-gradient(at 99% 81%, hsla(91,99%,72%,1) 0px, transparent 70%),
+                radial-gradient(at 42% 83%, hsla(311,96%,62%,1) 0px, transparent 70%),
+                radial-gradient(at 8% 66%, hsla(213,98%,79%,1) 0px, transparent 70%);
+
+    --bg-2:#e299ff;
+    --bg-img-2:
+                radial-gradient(at 1% 87%, hsla(177,77%,69%,1) 0px, transparent 50%),
+                radial-gradient(at 58% 25%, hsla(196,95%,66%,1) 0px, transparent 50%),
+                radial-gradient(at 30% 13%, hsla(255,81%,78%,1) 0px, transparent 50%),
+                radial-gradient(at 48% 98%, hsla(168,74%,71%,1) 0px, transparent 50%),
+                radial-gradient(at 48% 79%, hsla(123,93%,75%,1) 0px, transparent 50%),
+                radial-gradient(at 66% 35%, hsla(324,88%,70%,1) 0px, transparent 50%),
+                radial-gradient(at 36% 26%, hsla(108,81%,75%,1) 0px, transparent 50%);
+}
