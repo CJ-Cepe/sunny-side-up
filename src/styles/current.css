@@ -17,9 +17,8 @@ main > div:nth-child(3) > p {
 }
 
 main > div:nth-child(3) img {
-    width: 80%;
-    height: 40%;
-    background-color: gray;
+    width: auto;
+    height: 30%;
 }
 
 main > div:nth-child(3) > div {

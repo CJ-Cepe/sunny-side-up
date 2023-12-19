@@ -22,6 +22,7 @@ function setLocation(doc, data) {
 //condition, image, temperature, feelsLike, cloud, humidity, precipitation, pressure
 function setCurrent(doc, data) {
   doc.currentWeather.condition.textContent = data.currentWeather.status;
+  doc.currentWeather.image.src = data.currentWeather.icon;
   doc.currentWeather.temperature.textContent = data.currentWeather.temperature;
   doc.currentWeather.feelsLike.textContent = data.currentWeather.feelsLike;
   doc.currentWeather.cloud.textContent = data.currentWeather.cloud;
@@ -59,7 +60,7 @@ function setGradient(doc, data) {
   if (1000 === code) {
     bg.backgroundColor = "var(--bg-1)";
     bg.backgroundImage = "var(--bg-img-1)";
-  } else if ([1003, 1006, 1009].includes(code)) {
+  } else if ([1003, 1006, 1009, 1030].includes(code)) {
     bg.backgroundColor = "var(--bg-2)";
     bg.backgroundImage = "var(--bg-img-2)";
   } else if (
