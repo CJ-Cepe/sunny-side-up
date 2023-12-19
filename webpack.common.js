@@ -9,6 +9,7 @@ const path = require('path');
    plugins: [
      new HtmlWebpackPlugin({
        title: 'SunnySideUp',
+       favicon: './src/assets/icon.ico',
        filename: 'index.html',
        inject: 'head',
        scriptLoading: 'defer',

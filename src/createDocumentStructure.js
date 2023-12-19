@@ -4,6 +4,7 @@
 
 import arrow from "./assets/arrow.svg";
 import search from "./assets/search.svg";
+import icon from "./assets/icon.png";
 import { getAreaList } from "./dataRetriever";
 
 function createDocu() {
@@ -88,7 +89,7 @@ function setLogoElements(logoCont) {
   const image = new Image();
   const content = document.createElement("p");
   content.textContent = "SunnySideUp";
-
+  image.src = icon;
   logoCont.append(image, content);
 }
 
