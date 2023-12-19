@@ -13,6 +13,7 @@ main > div:nth-child(3) {
 main > div:nth-child(3) > p {
    font-weight: bold;
    font-size: max(2rem, 1.5cqi);
+   text-transform: capitalize;
 }
 
 main > div:nth-child(3) img {

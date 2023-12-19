@@ -21,7 +21,7 @@ main > div:nth-child(6) div > p {
 }
 
 main > div:nth-child(6) div > p:last-child {
-    color: gray;
+    color: var(--gray1);
     margin-top: 1.5rem;
 }
 
