@@ -82,6 +82,7 @@ function getWindInfo(data) {
 function getCurrentWeatherInfo(data) {
   //get current Info
   const status = data.current.condition.text;
+  const code =  data.current.condition.code;
   const temperature = data.current.temp_c;
   const feelsLike = data.current.feelslike_c;
   const humidity = data.current.humidity;
@@ -91,6 +92,7 @@ function getCurrentWeatherInfo(data) {
 
   return {
     status,
+    code,
     temperature,
     feelsLike,
     humidity,

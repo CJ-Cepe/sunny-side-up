@@ -22,13 +22,13 @@ function createDocu() {
     containers.nextDayWeatherCont3,
   ]);
 
-  return { location, currentWeather, windInfo, search, getLocation, forecast };
+  return { containers, location, currentWeather, windInfo, search, getLocation, forecast };
 }
 
 function createMainContainers() {
   const body = document.querySelector("body");
-  const gradient = document.createElement("div");
-  gradient.classList.add('gradient')
+  const filter = document.createElement("div");
+        filter.classList.add("filter");
   const mainCont = document.createElement("main");
 
   const logoCont = document.createElement("div");
@@ -40,7 +40,7 @@ function createMainContainers() {
   const nextDayWeatherCont1 = document.createElement("div");
   const nextDayWeatherCont2 = document.createElement("div");
   const nextDayWeatherCont3 = document.createElement("div");
-  body.append(gradient, mainCont);
+  body.append(filter, mainCont);
   mainCont.append(
     logoCont,
     getLocationCont,
@@ -55,6 +55,7 @@ function createMainContainers() {
   addClass(mainCont);
 
   return {
+    body,
     logoCont,
     getLocationCont,
     currentWeatherCont,
