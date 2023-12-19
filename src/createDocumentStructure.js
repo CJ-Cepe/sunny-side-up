@@ -22,13 +22,21 @@ function createDocu() {
     containers.nextDayWeatherCont3,
   ]);
 
-  return { containers, location, currentWeather, windInfo, search, getLocation, forecast };
+  return {
+    containers,
+    location,
+    currentWeather,
+    windInfo,
+    search,
+    getLocation,
+    forecast,
+  };
 }
 
 function createMainContainers() {
   const body = document.querySelector("body");
   const filter = document.createElement("div");
-        filter.classList.add("filter");
+  filter.classList.add("filter");
   const mainCont = document.createElement("main");
 
   const logoCont = document.createElement("div");

@@ -18,7 +18,7 @@ body {
     max-width: 100%;
     overflow: hidden;
 
-    animation: gradient-anim 5s infinite;
+    animation: gradient-anim 3s infinite;
     background-size: 200%, 200%;
     background-color:var(--bg-1);
     background-image:var(--bg-img-1);

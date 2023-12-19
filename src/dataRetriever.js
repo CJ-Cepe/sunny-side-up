@@ -8,7 +8,7 @@ class WeatherAPI {
     this.key = "c6bbf07487324ab7956102416231012";
   }
 
-  async fetchData(api, area = "dubai", days = 3) {
+  async fetchData(api, area = "dubai", days = 4) {
     try {
       const response = await fetch(
         `${this.baseUrl}${api}?key=${this.key}&q=${area}&days=${days}`,
@@ -45,7 +45,7 @@ async function getForecast(area) {
 
 function getNextDayForecast(data) {
   const day = [];
-  for (let i = 0; i < data.forecast.forecastday.length; i++) {
+  for (let i = 1; i < data.forecast.forecastday.length; i++) {
     day.push([
       formatDate(data.forecast.forecastday[i].date),
       getDayEquivalent(data.forecast.forecastday[i].date),
@@ -82,7 +82,7 @@ function getWindInfo(data) {
 function getCurrentWeatherInfo(data) {
   //get current Info
   const status = data.current.condition.text;
-  const code =  data.current.condition.code;
+  const code = data.current.condition.code;
   const temperature = data.current.temp_c;
   const feelsLike = data.current.feelslike_c;
   const humidity = data.current.humidity;

@@ -3,7 +3,7 @@
 */
 
 function updateContent(doc, data) {
-  setGradient(doc, data)
+  setGradient(doc, data);
   setLocation(doc, data);
   setCurrent(doc, data);
   setWind(doc, data);
@@ -53,54 +53,52 @@ function setForecast(doc, data) {
 }
 
 function setGradient(doc, data) {
-  let bg = doc.containers.body.style
+  let bg = doc.containers.body.style;
   let code = data.currentWeather.code;
 
-  if(1000 === code){
+  if (1000 === code) {
     bg.backgroundColor = "var(--bg-1)";
-    bg.backgroundImage  = "var(--bg-img-1)"
-
+    bg.backgroundImage = "var(--bg-img-1)";
   } else if ([1003, 1006, 1009].includes(code)) {
     bg.backgroundColor = "var(--bg-2)";
-    bg.backgroundImage  = "var(--bg-img-2)"
-
-  } else if ([1063, 1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1246, 1273, 1276].includes(code)){
+    bg.backgroundImage = "var(--bg-img-2)";
+  } else if (
+    [
+      1063, 1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1246, 1273, 1276,
+    ].includes(code)
+  ) {
     bg.backgroundColor = "var(--bg-3)";
-    bg.backgroundImage  = "var(--bg-img-3)"
-
-  } else if ([1066, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258, 1261, 1264, 1279, 1282, 1069].includes(code)){
+    bg.backgroundImage = "var(--bg-img-3)";
+  } else if (
+    [
+      1066, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258, 1261, 1264, 1279,
+      1282, 1069,
+    ].includes(code)
+  ) {
     bg.backgroundColor = "var(--bg-4)";
-    bg.backgroundImage  = "var(--bg-img-4)"
-
-  } else if ([1069, 1072, 1204, 1207, 1249, 1252].includes(code)){
+    bg.backgroundImage = "var(--bg-img-4)";
+  } else if ([1069, 1072, 1204, 1207, 1249, 1252].includes(code)) {
     bg.backgroundColor = "var(--bg-5)";
-    bg.backgroundImage  = "var(--bg-img-5)"
-
-  } else if ([1150, 1153, 1168, 1171].includes(code)){
+    bg.backgroundImage = "var(--bg-img-5)";
+  } else if ([1150, 1153, 1168, 1171].includes(code)) {
     bg.backgroundColor = "var(--bg-6)";
-    bg.backgroundImage  = "var(--bg-img-6)"
-
-  } else if([1198, 1201].includes(code)){
+    bg.backgroundImage = "var(--bg-img-6)";
+  } else if ([1198, 1201].includes(code)) {
     bg.backgroundColor = "var(--bg-7)";
-    bg.backgroundImage  = "var(--bg-img-7)"
-
-  } else if([1135, 1147].includes(code)){
+    bg.backgroundImage = "var(--bg-img-7)";
+  } else if ([1135, 1147].includes(code)) {
     bg.backgroundColor = "var(--bg-8)";
-    bg.backgroundImage  = "var(--bg-img-8)"
-
-  } else if([1114, 1117].includes(code)){
+    bg.backgroundImage = "var(--bg-img-8)";
+  } else if ([1114, 1117].includes(code)) {
     bg.backgroundColor = "var(--bg-9)";
-    bg.backgroundImage  = "var(--bg-img-9)"
-
-  } else if (1237 === code){
+    bg.backgroundImage = "var(--bg-img-9)";
+  } else if (1237 === code) {
     bg.backgroundColor = "var(--bg-10)";
-    bg.backgroundImage  = "var(--bg-img-10)"
-
+    bg.backgroundImage = "var(--bg-img-10)";
   } else {
     bg.backgroundColor = "var(--bg-11)";
-    bg.backgroundImage  = "var(--bg-img-11)"
+    bg.backgroundImage = "var(--bg-img-11)";
   }
 }
-
 
 export { updateContent };

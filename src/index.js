@@ -1,7 +1,6 @@
 import { createDocu } from "./createDocumentStructure";
 import { getForecast } from "./dataRetriever";
 import { updateContent } from "./layoutManager";
-
 import { getPosition } from "./locationRetriever";
 
 import "./styles/style.css";
