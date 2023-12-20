@@ -32,6 +32,7 @@ class WeatherAPI {
 
 //pure-getter
 async function getForecast(area) {
+  showPreloader();
   const weatherAPI = new WeatherAPI();
   const data = await weatherAPI.fetchForecast(area);
   console.log(data);
@@ -39,6 +40,7 @@ async function getForecast(area) {
   const currentWeather = getCurrentWeatherInfo(data);
   const windInfo = getWindInfo(data);
   const foreCast = getNextDayForecast(data);
+  showPreloader();
 
   return { location, currentWeather, windInfo, foreCast };
 }
@@ -100,7 +102,7 @@ function getCurrentWeatherInfo(data) {
     pressure,
     precipitation,
     cloud,
-    icon
+    icon,
   };
 }
 
@@ -147,4 +149,9 @@ function formatDate(date) {
   return formattedDate;
 }
 
-export { getForecast, getAreaList };
+function showPreloader(){
+  const preloader = document.querySelector('.preloader')
+  preloader.classList.toggle("visible")
+}
+
+export { getForecast, getAreaList, showPreloader};

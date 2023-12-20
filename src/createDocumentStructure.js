@@ -5,6 +5,8 @@
 import arrow from "./assets/arrow.svg";
 import search from "./assets/search.svg";
 import icon from "./assets/icon.png";
+import preloadAnimatedSvg from "./assets/rainy-3.svg";
+
 import { getAreaList } from "./dataRetriever";
 
 function createDocu() {
@@ -36,8 +38,8 @@ function createDocu() {
 
 function createMainContainers() {
   const body = document.querySelector("body");
-  const filter = document.createElement("div");
-  filter.classList.add("filter");
+  const preloader = document.createElement("div");
+  const preloadIcon = document.createElement("img");
   const mainCont = document.createElement("main");
 
   const logoCont = document.createElement("div");
@@ -49,7 +51,12 @@ function createMainContainers() {
   const nextDayWeatherCont1 = document.createElement("div");
   const nextDayWeatherCont2 = document.createElement("div");
   const nextDayWeatherCont3 = document.createElement("div");
-  body.append(filter, mainCont);
+
+  preloader.classList.add("preloader");
+  preloader.appendChild(preloadIcon)
+  preloadIcon.src = preloadAnimatedSvg;
+  
+  body.append(mainCont, preloader);
   mainCont.append(
     logoCont,
     getLocationCont,
