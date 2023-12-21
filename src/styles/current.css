@@ -5,9 +5,8 @@ main > div:nth-child(3) {
 
  display: flex;
  flex-direction: column;
- justify-content: center;
+ justify-content: space-around;
  align-items: center;
- gap: 2rem;
 }
 
 main > div:nth-child(3) > p {
@@ -17,8 +16,8 @@ main > div:nth-child(3) > p {
 }
 
 main > div:nth-child(3) img {
-    width: auto;
-    height: 30%;
+    width: 20%;
+    height: auto;
 }
 
 main > div:nth-child(3) > div {
@@ -32,7 +31,7 @@ main > div:nth-child(3) div > div:nth-child(1) p{
 }
 
 main > div:nth-child(3) div > div:nth-child(1) span {
-    font-size: max(10cqi);
+    font-size: max(1rem, 10cqi);
 }
 
 main > div:nth-child(3) div > div:nth-child(2){
@@ -52,6 +51,9 @@ main > div:nth-child(3) div > div:nth-child(3) {
     align-items: start;
     justify-content: center;
     gap: 1rem;
-
     font-size: max(1rem, 1.5cqi);
 }
+
+/* *{
+    outline: 1px solid red;
+} */

@@ -112,21 +112,20 @@ function setFontSizes(doc) {
 
   //temperature
   adjustFontSize(doc.currentWeather.temperature, 3);
-
 }
 
 //Get text length of content
 //Passed on a function
 function adjustFontSize(elem, flag) {
-    elem.style.fontSize = computeFontSize(elem.textContent.length, flag);
+  elem.style.fontSize = computeFontSize(elem.textContent.length, flag);
 }
 
 //
 function computeFontSize(textLength, flag) {
-  let baseSize, fontSize, constant,  minSize;
+  let baseSize, fontSize, constant, minSize;
 
-  switch(flag){
-    case 1: 
+  switch (flag) {
+    case 1:
       baseSize = 15;
       constant = 1;
       fontSize = 2;
@@ -149,13 +148,12 @@ function computeFontSize(textLength, flag) {
   if (textLength >= baseSize) {
     textLength = baseSize - constant;
     fontSize = baseSize - textLength;
-  } 
-  
+  }
+
   return `max(${minSize}rem, ${fontSize}cqi)`;
 }
 
 export { updateContent };
-
 
 /* function computeFontSize(textLength) {
   let fontSize = 4,
