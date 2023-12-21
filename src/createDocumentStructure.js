@@ -53,9 +53,9 @@ function createMainContainers() {
   const nextDayWeatherCont3 = document.createElement("div");
 
   preloader.classList.add("preloader");
-  preloader.appendChild(preloadIcon)
+  preloader.appendChild(preloadIcon);
   preloadIcon.src = preloadAnimatedSvg;
-  
+
   body.append(mainCont, preloader);
   mainCont.append(
     logoCont,

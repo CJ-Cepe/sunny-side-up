@@ -149,9 +149,9 @@ function formatDate(date) {
   return formattedDate;
 }
 
-function showPreloader(){
-  const preloader = document.querySelector('.preloader')
-  preloader.classList.toggle("visible")
+function showPreloader() {
+  const preloader = document.querySelector(".preloader");
+  preloader.classList.toggle("visible");
 }
 
-export { getForecast, getAreaList, showPreloader};
+export { getForecast, getAreaList, showPreloader };

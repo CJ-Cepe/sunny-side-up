@@ -1,4 +1,4 @@
-import { showPreloader } from "./dataRetriever"
+import { showPreloader } from "./dataRetriever";
 
 function getLocation(options = {}) {
   return new Promise((resolve, reject) => {
@@ -8,9 +8,9 @@ function getLocation(options = {}) {
 
 async function getPosition() {
   try {
-    showPreloader()
+    showPreloader();
     const position = await getLocation();
-    showPreloader()
+    showPreloader();
 
     return `${position.coords.latitude}, ${position.coords.longitude}`;
   } catch (error) {

@@ -8,6 +8,7 @@ function updateContent(doc, data) {
   setCurrent(doc, data);
   setWind(doc, data);
   setForecast(doc, data);
+  setFontSizes(doc);
 }
 
 function setLocation(doc, data) {
@@ -102,4 +103,68 @@ function setGradient(doc, data) {
   }
 }
 
+function setFontSizes(doc) {
+  //country
+  adjustFontSize(doc.location.country, 1);
+
+  //location name
+  adjustFontSize(doc.location.area, 2);
+
+  //temperature
+  adjustFontSize(doc.currentWeather.temperature, 3);
+
+}
+
+//Get text length of content
+//Passed on a function
+function adjustFontSize(elem, flag) {
+    elem.style.fontSize = computeFontSize(elem.textContent.length, flag);
+}
+
+//
+function computeFontSize(textLength, flag) {
+  let baseSize, fontSize, constant,  minSize;
+
+  switch(flag){
+    case 1: 
+      baseSize = 15;
+      constant = 1;
+      fontSize = 2;
+      minSize = 1;
+      break;
+    case 2:
+      baseSize = 10;
+      constant = 3;
+      fontSize = 4;
+      minSize = 2;
+      break;
+    case 3:
+      baseSize = 4;
+      constant = 7;
+      fontSize = 10;
+      minSize = 2;
+      break;
+  }
+
+  if (textLength >= baseSize) {
+    textLength = baseSize - constant;
+    fontSize = baseSize - textLength;
+  } 
+  
+  return `max(${minSize}rem, ${fontSize}cqi)`;
+}
+
 export { updateContent };
+
+
+/* function computeFontSize(textLength) {
+  let fontSize = 4,
+    baseLength = 10;
+
+  if (textLength >= baseLength) {
+    textLength = baseLength - 3;
+    fontSize = baseSize - textLength;
+  }
+  console.log(fontSize)
+  return `max(1.5rem, ${fontSize}cqi)`;
+} */
