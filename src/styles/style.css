@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 :root {
-    --gray1: #4d4d4d;
-    --gray2: #7b7b7b;
+    --gray1: #303030;
+    --gray2: #404040;
     --font1: 'Inter', sans-serif;
 }
 
@@ -28,6 +28,13 @@ body {
     transition-duration: 2s;
     transition-delay: 3s;
     transition-timing-function: ease-in;
+}
+
+.filter {
+    background-color: rgba(16, 0, 60, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 main {

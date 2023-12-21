@@ -40,6 +40,7 @@ function createMainContainers() {
   const body = document.querySelector("body");
   const preloader = document.createElement("div");
   const preloadIcon = document.createElement("img");
+  const filter = document.createElement('div');
   const mainCont = document.createElement("main");
 
   const logoCont = document.createElement("div");
@@ -52,11 +53,12 @@ function createMainContainers() {
   const nextDayWeatherCont2 = document.createElement("div");
   const nextDayWeatherCont3 = document.createElement("div");
 
+  filter.classList.add("filter");
   preloader.classList.add("preloader");
   preloader.appendChild(preloadIcon);
   preloadIcon.src = preloadAnimatedSvg;
 
-  body.append(mainCont, preloader);
+  body.append(filter, mainCont, preloader);
   mainCont.append(
     logoCont,
     getLocationCont,
@@ -72,6 +74,7 @@ function createMainContainers() {
 
   return {
     body,
+    filter,
     logoCont,
     getLocationCont,
     currentWeatherCont,

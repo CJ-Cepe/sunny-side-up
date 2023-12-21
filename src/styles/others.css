@@ -39,12 +39,15 @@ main > div:nth-child(2) {
 }
 
 main > div:nth-child(2) button{
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    
     display: flex;
     align-items: center;
-    padding: 0.5rem 2rem;
+    padding: 0.3rem 1rem;
     border-radius: 5px;
-    border: none;
-    background-color: rgb(220, 220, 220);
+
+    border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 main > div:nth-child(2) button::before {
@@ -55,7 +58,6 @@ main > div:nth-child(2) button::before {
     height: 30px;
     content: "";
 }
-
 
 /* Logo Container */
 main > div:nth-child(1) {

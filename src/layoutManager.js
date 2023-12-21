@@ -17,14 +17,16 @@ function setLocation(doc, data) {
   doc.location.day.textContent = data.location.day;
   doc.location.date.textContent = data.location.date;
   doc.location.time.textContent =
-    data.location.time + " " + data.location.isDay;
+  data.location.time + " " + data.location.isDay;
+  updateFilter(data.location.isDay, doc.containers.filter)
 }
 
 //condition, image, temperature, feelsLike, cloud, humidity, precipitation, pressure
 function setCurrent(doc, data) {
   doc.currentWeather.condition.textContent = data.currentWeather.status;
   doc.currentWeather.image.src = data.currentWeather.icon;
-  doc.currentWeather.temperature.textContent = Math.round(data.currentWeather.temperature * 10) / 10; 
+  doc.currentWeather.temperature.textContent =
+    Math.round(data.currentWeather.temperature * 10) / 10;
   doc.currentWeather.feelsLike.textContent = data.currentWeather.feelsLike;
   doc.currentWeather.cloud.textContent = data.currentWeather.cloud;
   doc.currentWeather.humidity.textContent = data.currentWeather.humidity;
@@ -100,6 +102,14 @@ function setGradient(doc, data) {
   } else {
     bg.backgroundColor = "var(--bg-11)";
     bg.backgroundImage = "var(--bg-img-11)";
+  }
+}
+
+function updateFilter(isDay, filter){
+  if(isDay === "AM"){
+    filter.style.backgroundColor = "rgba(16, 0, 60, 0)";
+  } else {
+    filter.style.backgroundColor = "rgba(16, 0, 60, 0.4)";
   }
 }
 
