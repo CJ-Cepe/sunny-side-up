@@ -24,7 +24,7 @@ function setLocation(doc, data) {
 function setCurrent(doc, data) {
   doc.currentWeather.condition.textContent = data.currentWeather.status;
   doc.currentWeather.image.src = data.currentWeather.icon;
-  doc.currentWeather.temperature.textContent = data.currentWeather.temperature;
+  doc.currentWeather.temperature.textContent = Math.round(data.currentWeather.temperature * 10) / 10; 
   doc.currentWeather.feelsLike.textContent = data.currentWeather.feelsLike;
   doc.currentWeather.cloud.textContent = data.currentWeather.cloud;
   doc.currentWeather.humidity.textContent = data.currentWeather.humidity;
@@ -139,8 +139,8 @@ function computeFontSize(textLength, flag) {
       break;
     case 3:
       baseSize = 4;
-      constant = 7;
-      fontSize = 10;
+      constant = 6;
+      fontSize = 8;
       minSize = 2;
       break;
   }

@@ -5,7 +5,7 @@ main > div:nth-child(3) {
 
  display: flex;
  flex-direction: column;
- justify-content: space-around;
+ justify-content: space-evenly;
  align-items: center;
 }
 
@@ -13,6 +13,7 @@ main > div:nth-child(3) > p {
    font-weight: bold;
    font-size: max(2rem, 1.5cqi);
    text-transform: capitalize;
+   padding-bottom: 2rem;
 }
 
 main > div:nth-child(3) img {
@@ -25,13 +26,26 @@ main > div:nth-child(3) > div {
     grid-template-columns: 1fr 0.2fr 1fr;
 }
 
+/* Temperature label */
 main > div:nth-child(3) div > div:nth-child(1) p{
     flex-direction: column;
     display: flex;
 }
 
+/* Temperature value */
 main > div:nth-child(3) div > div:nth-child(1) span {
-    font-size: max(1rem, 10cqi);
+    font-size: max(1rem, 8cqi);
+}
+
+main > div:nth-child(3) div > div:nth-child(1) span::after {
+    content: "\2103";
+    font-size: 2rem;
+    
+    color: var(--gray1);
+    vertical-align:middle;
+    display: inline-block;
+    position: relative;
+    bottom: 1rem;
 }
 
 main > div:nth-child(3) div > div:nth-child(2){
@@ -41,7 +55,6 @@ main > div:nth-child(3) div > div:nth-child(2){
     align-self: center;
     justify-self: center;
 }
-
 
 main > div:nth-child(3) div > div:nth-child(3) {
     display: flex;
@@ -54,6 +67,36 @@ main > div:nth-child(3) div > div:nth-child(3) {
     font-size: max(1rem, 1.5cqi);
 }
 
-/* *{
-    outline: 1px solid red;
-} */
+main > div:nth-child(3) div > div:nth-child(3) span {
+    color: var(--gray1);
+}
+
+
+/* Measurement Units */
+main > div:nth-child(3) span::after {
+    color: var(--gray2);
+}
+
+main > div:nth-child(3) div > div:nth-child(3) p:nth-child(1) span::after {
+    content: "\2103";
+}
+
+main > div:nth-child(3) div > div:nth-child(3) p:nth-child(1) span::after {
+    content: "\2103";
+}
+
+main > div:nth-child(3) div > div:nth-child(3) p:nth-child(2) span::after {
+    content: "%";
+}
+
+main > div:nth-child(3) div > div:nth-child(3) p:nth-child(3) span::after {
+    content: "%";
+}
+
+main > div:nth-child(3) div > div:nth-child(3) p:nth-child(4) span::after {
+    content: "mm";
+}
+
+main > div:nth-child(3) div > div:nth-child(3) p:nth-child(5) span::after {
+    content: "in";
+}

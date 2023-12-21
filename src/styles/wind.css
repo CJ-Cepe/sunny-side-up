@@ -31,3 +31,18 @@ main > div:nth-child(6) div img {
     margin-top: 1.5rem;
     transition: transform 0.5s ease;
 }
+
+main > div:nth-child(6) div > p:last-child::after{
+    color: var(--gray2);
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+main > div:nth-child(6) div:nth-child(1) > p:last-child::after{
+    content: "mph";
+}
+
+main > div:nth-child(6) div:nth-child(2) > p:last-child::after{
+    content: "mph";
+}
+

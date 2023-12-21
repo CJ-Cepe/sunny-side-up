@@ -211,7 +211,7 @@ function setWindInfoElements(windInfoCont) {
   windLabel.textContent = "Wind";
   gustLabel.textContent = "Gust";
   degreeLabel.textContent = "Degree";
-  uvIndexLabel.textContent = "UV";
+  uvIndexLabel.textContent = "UV Index";
 
   degreeValue.src = arrow;
   degreeValue.width = "50";

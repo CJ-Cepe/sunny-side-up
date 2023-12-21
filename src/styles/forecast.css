@@ -35,3 +35,29 @@ main > div:is(:nth-child(7), :nth-child(8), :nth-child(9)) > img {
     width: 60px;
     height: auto;
 }
+
+/* Measurement Units */
+main > div:is(:nth-child(7), :nth-child(8), :nth-child(9))  > p span::after  {
+    color: var(--gray2);
+}
+
+main > div:is(:nth-child(7), :nth-child(8), :nth-child(9))  > p:nth-child(5) span::after {
+    content: "\2103";
+}
+
+main > div:is(:nth-child(7), :nth-child(8), :nth-child(9))  > p:nth-child(6) span::after {
+    content: "%";
+}
+
+main > div:is(:nth-child(7), :nth-child(8), :nth-child(9))  > p:nth-child(7) span::after {
+    text-transform: lowercase;
+    content: "mph";
+}
+
+main > div:is(:nth-child(7), :nth-child(8), :nth-child(9))  > p:nth-child(9) span::after {
+    content: "%";
+}
+
+main > div:is(:nth-child(7), :nth-child(8), :nth-child(9))  > p:nth-child(10) span::after {
+    content: "%";
+}
