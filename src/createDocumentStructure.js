@@ -40,7 +40,7 @@ function createMainContainers() {
   const body = document.querySelector("body");
   const preloader = document.createElement("div");
   const preloadIcon = document.createElement("img");
-  const filter = document.createElement('div');
+  const filter = document.createElement("div");
   const mainCont = document.createElement("main");
 
   const logoCont = document.createElement("div");
