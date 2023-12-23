@@ -1,23 +1,23 @@
 /* style for search, get location, and logo */
 
-/* search container */
+/*========== Search Cont ==========*/
 main > div:nth-child(5) form{
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5%;
-} 
-
+}
 
 main > div:nth-child(5)  input {
    background-color: transparent;
-   border: none;
-   border-bottom: 1.5px solid gray;
-   font-size: 1rem;
+   font-size: min(1rem, 3cqw);
    height: 2rem;
    width: 60%;
-
+   padding-left: 5px;
+   
+   border: none;
+   border-bottom: 1.5px solid gray;
    outline: none;
 }
 
@@ -31,37 +31,36 @@ main > div:nth-child(5)  img {
 }
 
 
-/* Get Location Container*/
+/*========== Location Cont ==========*/
 main > div:nth-child(2) {
    display: flex;
    align-items: center;
    justify-content: center;
 }
 
-main > div:nth-child(2) button{
+main > div:nth-child(2) > button{
     font-size: 1rem;
+    padding: 5px 2cqi;
     background-color: rgba(255, 255, 255, 0.3);
-    
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+
     display: flex;
     align-items: center;
-    padding: 0.3rem 1rem;
-    border-radius: 5px;
-
-    border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
-main > div:nth-child(2) button::before {
-    background-image: url("../assets/location-pin.svg");
-    background-size: 30px 30px;
-    display: inline-block;
-    width: 30px; 
-    height: 30px;
-    content: "";
+main > div:nth-child(2) > button > img {
+    width: 20px;
+    height: auto;
 }
 
-/* Logo Container */
+main > div:nth-child(2) > button::after {
+    content: "\00a0 \00a0 My Position"
+}
+
+/*========== Logo Cont ==========*/
 main > div:nth-child(1) {
-    font-size: max(1rem, 1.5cqi);
+    font-size: min(1.5rem, 3cqw);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,7 +68,40 @@ main > div:nth-child(1) {
 }
  
 main > div:nth-child(1) img {
-    width: 50px;
+    width: min(3rem, 6cqi);
     height: auto;
 }
  
+
+
+/*========== Media Queries ==========*/
+/* Tablet: 1024px */
+
+/* Phone: 360 */
+@media (max-width: 550px), screen and (orientation: portrait) {
+
+    /* Search */
+    main > div:nth-child(5)  input {
+        height: 1.5rem;
+    }
+
+    main > div:nth-child(5)  img {
+        width: 20px;
+    }
+
+    /* Position */
+    main > div:nth-child(2) > button{
+        background-color: transparent;
+        border: none;
+    }
+
+    main > div:nth-child(2) > button::after {
+        content: ""
+    }
+
+    /* Logo */
+    main > div:nth-child(1){
+        font-weight: bold;
+    }
+    
+}

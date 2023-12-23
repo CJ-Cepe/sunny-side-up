@@ -6,6 +6,7 @@ import arrow from "./assets/arrow.svg";
 import search from "./assets/search.svg";
 import icon from "./assets/icon.png";
 import preloadAnimatedSvg from "./assets/rainy-3.svg";
+import locationPin from "./assets/location-pin.svg";
 
 import { getAreaList } from "./dataRetriever";
 
@@ -58,16 +59,27 @@ function createMainContainers() {
   preloader.classList.add("preloader");
   preloader.appendChild(preloadIcon);
   preloadIcon.src = preloadAnimatedSvg;
-  
+
   body.append(filter, mainCont, preloader);
-  forecastCont.append(nextDayWeatherCont1, nextDayWeatherCont2, nextDayWeatherCont3)
-  mainCont.append(logoCont, getLocationCont, currentWeatherCont, locationCont,
-                  searchCont, windInfoCont, forecastCont,);
-  
+  forecastCont.append(
+    nextDayWeatherCont1,
+    nextDayWeatherCont2,
+    nextDayWeatherCont3,
+  );
+  mainCont.append(
+    logoCont,
+    getLocationCont,
+    currentWeatherCont,
+    locationCont,
+    searchCont,
+    windInfoCont,
+    forecastCont,
+  );
+
   //setting classes
   addClassToChild(mainCont, "cont");
-  forecastCont.classList.remove("cont")
-  forecastCont.classList.add("forecastCont")
+  forecastCont.classList.remove("cont");
+  forecastCont.classList.add("forecastCont");
 
   return {
     body,
@@ -81,12 +93,12 @@ function createMainContainers() {
     nextDayWeatherCont2,
     nextDayWeatherCont3,
 
-    filter,//to edit filter only
+    filter, //to edit filter only
   };
 
   //helper
   function addClassToChild(element, classToAdd) {
-    const containers = element.querySelectorAll( `div`);
+    const containers = element.querySelectorAll(`div`);
     containers.forEach((container) => {
       container.classList.add(classToAdd);
     });
@@ -104,8 +116,11 @@ function setLogoElements(logoCont) {
 //for location
 function setLocationCont(getLocationCont) {
   const getLocationBtn = document.createElement("button");
-  getLocationBtn.textContent = "My Location";
+  const img = document.createElement("img")
+  img.src = locationPin
+  
   getLocationCont.appendChild(getLocationBtn);
+  getLocationBtn.appendChild(img)
 
   return { getLocationBtn };
 }
