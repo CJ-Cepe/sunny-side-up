@@ -116,11 +116,11 @@ function setLogoElements(logoCont) {
 //for location
 function setLocationCont(getLocationCont) {
   const getLocationBtn = document.createElement("button");
-  const img = document.createElement("img")
-  img.src = locationPin
-  
+  const img = document.createElement("img");
+  img.src = locationPin;
+
   getLocationCont.appendChild(getLocationBtn);
-  getLocationBtn.appendChild(img)
+  getLocationBtn.appendChild(img);
 
   return { getLocationBtn };
 }
@@ -206,7 +206,7 @@ function setWindInfoElements(windInfoCont) {
   const windCont = document.createElement("div");
   const gustCont = document.createElement("div");
   const degreeCont = document.createElement("div");
-  const uvIndexCont = document.createElement("div");
+  const directionCont = document.createElement("div");
 
   const windLabel = document.createElement("p");
   const windValue = document.createElement("p");
@@ -214,31 +214,27 @@ function setWindInfoElements(windInfoCont) {
   const gustValue = document.createElement("p");
   const degreeLabel = document.createElement("p");
   const degreeValue = new Image();
-  const uvIndexLabel = document.createElement("p");
-  const uvIndexValue = document.createElement("p");
+  const directionLabel = document.createElement("p");
+  const directionValue = document.createElement("p");
 
-  windInfoCont.append(windCont, gustCont, degreeCont, uvIndexCont);
+  windInfoCont.append(windCont, gustCont, directionCont, degreeCont);
   windCont.append(windLabel, windValue);
   gustCont.append(gustLabel, gustValue);
   degreeCont.append(degreeLabel, degreeValue);
-  uvIndexCont.append(uvIndexLabel, uvIndexValue);
+  directionCont.append(directionLabel, directionValue);
 
   //To transfer - add label contents
   windLabel.textContent = "Wind";
   gustLabel.textContent = "Gust";
+  directionLabel.textContent = "Direction";
   degreeLabel.textContent = "Degree";
-  uvIndexLabel.textContent = "UV Index";
-
   degreeValue.src = arrow;
-  degreeValue.width = "50";
-  degreeValue.height = "100";
-  //add class windCont
 
   return {
     wind: windValue,
     gust: gustValue,
     degree: degreeValue,
-    uvIndex: uvIndexValue,
+    direction: directionValue,
   };
 }
 

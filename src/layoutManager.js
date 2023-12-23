@@ -50,8 +50,10 @@ function setCurrent(doc, data) {
 function setWind(doc, data) {
   doc.windInfo.wind.textContent = data.windInfo.wind;
   doc.windInfo.gust.textContent = data.windInfo.gust;
+  doc.windInfo.direction.textContent = data.windInfo.direction;
+
   doc.windInfo.degree.style.transform = `rotate(${data.windInfo.degree}deg)`;
-  doc.windInfo.uvIndex.textContent = data.windInfo.uvIndex;
+  //doc.windInfo.uvIndex.textContent = data.windInfo.uvIndex;
 }
 
 function setForecast(doc, data) {

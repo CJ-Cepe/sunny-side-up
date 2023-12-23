@@ -76,9 +76,10 @@ function getWindInfo(data) {
   const wind = data.current.wind_mph;
   const gust = data.current.gust_mph;
   const degree = data.current.wind_degree;
+  const direction = data.current.wind_dir;
   const uvIndex = data.current.uv;
 
-  return { wind, gust, degree, uvIndex };
+  return { wind, gust, direction, degree };
 }
 
 function getCurrentWeatherInfo(data) {
