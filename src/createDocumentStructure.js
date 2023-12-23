@@ -49,6 +49,7 @@ function createMainContainers() {
   const locationCont = document.createElement("div");
   const searchCont = document.createElement("div");
   const windInfoCont = document.createElement("div");
+  const forecastCont = document.createElement("div");
   const nextDayWeatherCont1 = document.createElement("div");
   const nextDayWeatherCont2 = document.createElement("div");
   const nextDayWeatherCont3 = document.createElement("div");
@@ -57,24 +58,19 @@ function createMainContainers() {
   preloader.classList.add("preloader");
   preloader.appendChild(preloadIcon);
   preloadIcon.src = preloadAnimatedSvg;
-
+  
   body.append(filter, mainCont, preloader);
-  mainCont.append(
-    logoCont,
-    getLocationCont,
-    currentWeatherCont,
-    locationCont,
-    searchCont,
-    windInfoCont,
-    nextDayWeatherCont1,
-    nextDayWeatherCont2,
-    nextDayWeatherCont3,
-  );
-  addClass(mainCont);
+  forecastCont.append(nextDayWeatherCont1, nextDayWeatherCont2, nextDayWeatherCont3)
+  mainCont.append(logoCont, getLocationCont, currentWeatherCont, locationCont,
+                  searchCont, windInfoCont, forecastCont,);
+  
+  //setting classes
+  addClassToChild(mainCont, "cont");
+  forecastCont.classList.remove("cont")
+  forecastCont.classList.add("forecastCont")
 
   return {
     body,
-    filter,
     logoCont,
     getLocationCont,
     currentWeatherCont,
@@ -84,13 +80,15 @@ function createMainContainers() {
     nextDayWeatherCont1,
     nextDayWeatherCont2,
     nextDayWeatherCont3,
+
+    filter,//to edit filter only
   };
 
   //helper
-  function addClass(mainCont) {
-    const containers = mainCont.querySelectorAll("div");
+  function addClassToChild(element, classToAdd) {
+    const containers = element.querySelectorAll( `div`);
     containers.forEach((container) => {
-      container.classList.add("cont");
+      container.classList.add(classToAdd);
     });
   }
 }

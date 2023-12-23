@@ -1,15 +1,15 @@
 /*
   For setting html elements text values
 */
-import sun from "./assets/sun.svg"
-import moon from "./assets/moon.svg"
+import sun from "./assets/sun.svg";
+import moon from "./assets/moon.svg";
 
 function updateContent(doc, data) {
   setGradient(doc, data);
   setLocation(doc, data);
   setCurrent(doc, data);
   setWind(doc, data);
-  
+
   setForecast(doc, data);
   setFontSizes(doc);
 }
@@ -21,15 +21,15 @@ function setLocation(doc, data) {
   doc.location.date.textContent = data.location.date;
   doc.location.time.textContent =
     data.location.time + " " + data.location.isDay;
-  doc.location.img.src = setImage(data.location.isDay)
+  doc.location.img.src = setImage(data.location.isDay);
   updateFilter(data.location.isDay, doc.containers.filter);
 }
 
-function setImage(isDay){
-  if(isDay === "AM"){
-    return sun
+function setImage(isDay) {
+  if (isDay === "AM") {
+    return sun;
   } else {
-    return moon
+    return moon;
   }
 }
 //condition, image, temperature, feelsLike, cloud, humidity, precipitation, pressure
