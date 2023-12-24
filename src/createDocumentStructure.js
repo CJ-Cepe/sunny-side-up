@@ -282,12 +282,12 @@ export { createDocu };
 
 function setNextDayElements(days) {
   const content = [
-    "temperature: ",
-    "humidity: ",
-    "wind: ",
-    "UV index: ",
-    "chance of rain: ",
-    "chance of snow: ",
+    "temperature",
+    "humidity",
+    "wind",
+    "UV index",
+    "Chance of rain",
+    "Chance of snow",
   ];
   let nextDay = [];
   for (let i = 0; i < 3; i++) {
@@ -296,14 +296,16 @@ function setNextDayElements(days) {
     const day = document.createElement("p");
     const status = document.createElement("p");
     const image = document.createElement("img");
+    const infoCont = document.createElement("div");
+
     elements.push(date, day, image, status);
-    days[i].append(date, day, image, status);
+    days[i].append(date, day, image, status, infoCont);
     for (let j = 0; j < 6; j++) {
       const p = document.createElement("p");
       const span = document.createElement("span");
       p.textContent = content[j];
       p.appendChild(span);
-      days[i].appendChild(p);
+      infoCont.appendChild(p);
       elements.push(span);
     }
     nextDay.push(elements);

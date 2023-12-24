@@ -51,6 +51,7 @@ main > div:nth-child(6) div:is(:nth-child(1), :nth-child(2)) > p:last-child::aft
 
 /*========== Media Queries ==========*/
 /* Tablet: 1024px */
+
 @media (max-width: 1200px) {
     
     /*========== Parent Cont ==========*/

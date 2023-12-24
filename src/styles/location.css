@@ -1,47 +1,70 @@
 /* LOCATION CONTAINER */
+
+/*========== Location Cont ==========*/
 main > div:nth-child(4) {
     display: grid;
     grid-template-columns: 1fr 0.5fr;
+    justify-items: center;
+
     padding: 1rem;
     overflow: hidden;
 }
 
+/*========== Right div ==========*/
 main > div:nth-child(4) > div {
+    justify-self: start;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-main > div:nth-child(4) > div> p:nth-child(1){
-    font-size: max(1rem, 2cqi);
-}
- 
-main > div:nth-child(4) > div > p:nth-child(2){
-   font-size: max(2rem, 4cqi);
-   font-weight: 700;
-   padding-left: 1rem;
-
-   display: flex;
-   align-items: center;
-   overflow: hidden;
-}
-
-main > div:nth-child(4) > div > p:is(:nth-child(3), :nth-child(4)){
-    font-size: max(0.7rem, 1.5cqi);
-    padding-left: 1rem; 
-}
-
-main > div:nth-child(4) > div > p:nth-child(5){
-    font-size: max(1rem, 5cqi);
-}
-
+/*========== Left img ==========*/
 main > div:nth-child(4) > img{
     width: 90%;
     aspect-ratio: 1 /1 ;
 
     align-self: center;
-    margin-bottom: 5rem;
 }
 
+/*========== Right div: Country ==========*/
+main > div:nth-child(4) > div> p:nth-child(1){
+   /*  font-size: max(1rem, 2cqi); */
+   font-size: clamp(1rem, 2vw, 2rem);
+}
+
+/*========== Right div: Area ==========*/
+main > div:nth-child(4) > div > p:nth-child(2){
+   /* font-size: max(2rem, 4cqi); */
+   font-size: clamp(1rem, 4vw, 4rem);
+   font-weight: 700;
+
+   padding-left: 1rem;
+}
+
+/*========== Right div: Date ==========*/
+main > div:nth-child(4) > div > p:is(:nth-child(3), :nth-child(4)){
+    /* font-size: max(0.7rem, 1.5cqi); */
+    font-size: clamp(0.5rem, 2vw, 1.5rem);
+    padding-left: 1rem; 
+}
+
+/*========== Right div: Time ==========*/
+main > div:nth-child(4) > div > p:nth-child(5){
+    /* font-size: max(1rem, 5cqi); */
+    font-size: clamp(1rem, 5vw, 5rem);
+}
+
+
+/*========== Media Queries ==========*/
+/* Tablet: 1024px */
+@media (max-width: 1200px) {
+    
+}
+
+/* Phone: 360 */
+@media (max-width: 550px), screen and (orientation: portrait) {
+
+}
 
 

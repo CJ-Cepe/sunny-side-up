@@ -11,7 +11,7 @@ function updateContent(doc, data) {
   setWind(doc, data);
 
   setForecast(doc, data);
-  setFontSizes(doc);
+  //setFontSizes(doc);
 }
 
 function setLocation(doc, data) {
