@@ -83,12 +83,30 @@ main > div:nth-child(7) {
 
 /* Phone: 360 */
 @media (max-width: 550px), screen and (orientation: portrait) {
+    /*========== Forecast Cont ==========*/
+    main > div:nth-child(7) {
+        display: grid;
+        grid-template-columns: repeat(3, 85vw);
+        overflow-y: scroll;
+    }
+
+    /*========== Inner forecast Cont ==========*/
+    .forecastCont > div {
+        flex-grow: 1;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem;
+    }
+
     /*========== div ==========*/
     .forecastCont > div > div {
         grid-template-columns: repeat(2, 1fr);
     }
-}
 
+
+}
 
 
 /*========== inner span : values::after ==========*/

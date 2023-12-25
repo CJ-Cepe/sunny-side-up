@@ -187,7 +187,7 @@ main > div:nth-child(7) {
     /* Current Weather */
     main > div:nth-child(3) {
         grid-column: 1 / 6;
-        grid-row: 4 / 8;
+        grid-row: 4 / 7;
      }
      
      /* Location Cont */
@@ -199,13 +199,13 @@ main > div:nth-child(7) {
      /* Wind Cont */
      main > div:nth-child(6) {
         grid-column: 1 / 6;
-         grid-row: 8 / 9;
+         grid-row: 7 / 8;
      }
      
      /* Forecast Cont */
      main > div:nth-child(7) {
          grid-column: 1 / 6;
-         grid-row: 9 / 10;
+         grid-row: 8 / 10;
      }
 }
 
