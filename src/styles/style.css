@@ -110,7 +110,6 @@ main > div:nth-child(7) {
 /*========== Media Queries ==========*/
 /* Tablet: 1024px */
 @media (max-width: 1200px) {
-
     main {
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(9, 1fr);
@@ -163,7 +162,8 @@ main > div:nth-child(7) {
 @media (max-width: 550px), screen and (orientation: portrait) {
     main {
         grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(9, 1fr);
+        grid-template-rows: 0.2fr repeat(2, 0.3fr) repeat(3, 0.3fr) 0.2fr repeat(2, 0.6fr);
+        gap: 5px;
     }
 
     /* Logo Cont */

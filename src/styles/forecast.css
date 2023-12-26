@@ -68,7 +68,8 @@ main > div:nth-child(7) {
 
 /*========== inner span : values ==========*/
 .forecastCont > div > div > p > span {
-    font-size: clamp(0.5rem, 2vw, 1.5rem);
+   font-size: clamp(0.5rem, 2vw, 1.5rem); 
+  /*  font-size: calc(15px + 0.390625vw); */
 }
 
 /*========== Media Queries ==========*/
@@ -85,27 +86,51 @@ main > div:nth-child(7) {
 @media (max-width: 550px), screen and (orientation: portrait) {
     /*========== Forecast Cont ==========*/
     main > div:nth-child(7) {
-        display: grid;
-        grid-template-columns: repeat(3, 85vw);
-        overflow-y: scroll;
+        gap: 5px;
+        overflow-x: scroll;
     }
 
     /*========== Inner forecast Cont ==========*/
     .forecastCont > div {
-        flex-grow: 1;
+        flex: 1 0 150px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+       
+        text-align: center;
+        justify-items: center;
+    }
 
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 1rem;
+    /*========== date ==========*/
+    .forecastCont > div > p:first-child{
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+    /*========== day ==========*/
+    .forecastCont > div > p:nth-child(2){
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+    }
+
+    /*========== icon ==========*/
+    .forecastCont > div > img{
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+
+    /*========== status ==========*/
+    .forecastCont > div > p:nth-child(4){
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
     }
 
     /*========== div ==========*/
     .forecastCont > div > div {
+        grid-column: span 2;
+        grid-row: 4 / 5;
         grid-template-columns: repeat(2, 1fr);
     }
-
-
 }
 
 
