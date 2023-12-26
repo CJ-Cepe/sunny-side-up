@@ -149,10 +149,7 @@ function setCurrentWeatherElements(currentWeatherCont) {
   const rightCont = document.createElement("div");
   const divider = document.createElement("div");
 
-  const tempLabel = document.createElement("p");
   const temperature = document.createElement("span");
-  tempLabel.textContent = "Temperature";
-  tempLabel.appendChild(temperature);
 
   const feelsLikeLabel = document.createElement("p");
   const feelsLike = document.createElement("span");
@@ -179,16 +176,20 @@ function setCurrentWeatherElements(currentWeatherCont) {
   pressureLabel.textContent = "Pressure: ";
   pressureLabel.appendChild(pressure);
 
-  currentWeatherCont.append(condition, image, bottomCont);
+  const uvIndexLabel = document.createElement("p");
+  const uvIndex = document.createElement("span");
+  uvIndexLabel.textContent = "UV Index: ";
+  uvIndexLabel.appendChild(uvIndex);
+
+  currentWeatherCont.append(condition, image, temperature, bottomCont);
   bottomCont.append(leftCont, divider, rightCont);
   rightCont.append(
-    feelsLikeLabel,
     cloudLabel,
     humidityLabel,
     precipitationLabel,
     pressureLabel,
   );
-  leftCont.append(tempLabel);
+  leftCont.append(feelsLikeLabel, uvIndexLabel);
 
   return {
     condition,
@@ -199,6 +200,7 @@ function setCurrentWeatherElements(currentWeatherCont) {
     humidity,
     precipitation,
     pressure,
+    uvIndex,
   };
 }
 

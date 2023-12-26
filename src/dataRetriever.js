@@ -77,7 +77,6 @@ function getWindInfo(data) {
   const gust = data.current.gust_mph;
   const degree = data.current.wind_degree;
   const direction = data.current.wind_dir;
-  const uvIndex = data.current.uv;
 
   return { wind, gust, direction, degree };
 }
@@ -93,6 +92,7 @@ function getCurrentWeatherInfo(data) {
   const pressure = data.current.pressure_in;
   const precipitation = data.current.precip_mm;
   const cloud = data.current.cloud;
+  const uvIndex = data.current.uv;
 
   return {
     status,
@@ -104,6 +104,7 @@ function getCurrentWeatherInfo(data) {
     precipitation,
     cloud,
     icon,
+    uvIndex
   };
 }
 

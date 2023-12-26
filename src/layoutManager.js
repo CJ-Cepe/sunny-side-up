@@ -44,6 +44,7 @@ function setCurrent(doc, data) {
   doc.currentWeather.precipitation.textContent =
     data.currentWeather.precipitation;
   doc.currentWeather.pressure.textContent = data.currentWeather.pressure;
+  doc.currentWeather.uvIndex.textContent = data.currentWeather.uvIndex;
 }
 
 //return {wind, gust, degree, uvIndex}
@@ -53,7 +54,6 @@ function setWind(doc, data) {
   doc.windInfo.direction.textContent = data.windInfo.direction;
 
   doc.windInfo.degree.style.transform = `rotate(${data.windInfo.degree}deg)`;
-  //doc.windInfo.uvIndex.textContent = data.windInfo.uvIndex;
 }
 
 function setForecast(doc, data) {
