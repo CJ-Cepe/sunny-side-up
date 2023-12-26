@@ -149,47 +149,48 @@ function setCurrentWeatherElements(currentWeatherCont) {
   const rightCont = document.createElement("div");
   const divider = document.createElement("div");
 
-  const temperature = document.createElement("span");
+
+  const today = document.createElement("p");
+  today.textContent = "today"
+  const temperature = document.createElement("P");
 
   const feelsLikeLabel = document.createElement("p");
   const feelsLike = document.createElement("span");
-  feelsLikeLabel.textContent = "Feels Like: ";
+  feelsLikeLabel.textContent = "Feels Like ";
   feelsLikeLabel.appendChild(feelsLike);
 
   const cloudLabel = document.createElement("p");
   const cloud = document.createElement("span");
-  cloudLabel.textContent = "Cloud: ";
+  cloudLabel.textContent = "Cloud ";
   cloudLabel.appendChild(cloud);
 
   const humidityLabel = document.createElement("p");
   const humidity = document.createElement("span");
-  humidityLabel.textContent = "Humidity: ";
+  humidityLabel.textContent = "Humidity ";
   humidityLabel.appendChild(humidity);
 
   const precipitationLabel = document.createElement("p");
   const precipitation = document.createElement("span");
-  precipitationLabel.textContent = "Precipitation: ";
+  precipitationLabel.textContent = "Precipitation ";
   precipitationLabel.appendChild(precipitation);
 
   const pressureLabel = document.createElement("p");
   const pressure = document.createElement("span");
-  pressureLabel.textContent = "Pressure: ";
+  pressureLabel.textContent = "Pressure ";
   pressureLabel.appendChild(pressure);
 
   const uvIndexLabel = document.createElement("p");
   const uvIndex = document.createElement("span");
-  uvIndexLabel.textContent = "UV Index: ";
+  uvIndexLabel.textContent = "UV Index ";
   uvIndexLabel.appendChild(uvIndex);
 
-  currentWeatherCont.append(condition, image, temperature, bottomCont);
-  bottomCont.append(leftCont, divider, rightCont);
+  currentWeatherCont.append(today, condition, temperature, image,   feelsLikeLabel, uvIndexLabel, divider, rightCont);
   rightCont.append(
     cloudLabel,
     humidityLabel,
     precipitationLabel,
     pressureLabel,
   );
-  leftCont.append(feelsLikeLabel, uvIndexLabel);
 
   return {
     condition,

@@ -104,7 +104,7 @@ function getCurrentWeatherInfo(data) {
     precipitation,
     cloud,
     icon,
-    uvIndex
+    uvIndex,
   };
 }
 

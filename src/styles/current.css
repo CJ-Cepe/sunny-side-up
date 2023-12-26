@@ -1,46 +1,131 @@
-/* current time container */
+/* CURRENT WEATHER CONTAINER */
+
+/*========== Current Weather Cont ==========*/
 main > div:nth-child(3) {
- text-align:  center;
- font-size: max(1rem, 2cqi);
+    text-align:  center;
+    font-size: max(1rem, 2cqi);
 
- display: flex;
- flex-direction: column;
- justify-content: space-evenly;
- align-items: center;
-}
-
-main > div:nth-child(3) > p {
-   font-weight: bold;
-   font-size: max(2rem, 1.5cqi);
-   text-transform: capitalize;
-   padding-bottom: 2rem;
-}
-
-main > div:nth-child(3) img {
-    width: 20%;
-    height: auto;
-}
-
-main > div:nth-child(3) > div {
     display: grid;
-    grid-template-columns: 1fr 0.2fr 1fr;
+    grid-template-columns: repeat(2, 1fr) 0.5fr repeat(2, 1fr);
+    grid-template-rows: repeat(2, 0.5fr) repeat(7, 1fr) 0.5fr;
+    justify-items: center;
+    align-items: center;
 }
 
-/* Temperature label */
-main > div:nth-child(3) div > div:nth-child(1) p{
-    flex-direction: column;
-    display: flex;
+/*========== today ==========*/
+main > div:nth-child(3) > p:nth-child(1) {
+    font-weight: bold;
+    color: var(--gray2);
+    text-transform: capitalize;
+    font-size: 1rem;
+
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+
+    align-self: end;
+
 }
 
-/* Temperature value */
-main > div:nth-child(3) div > div:nth-child(1) span {
-    font-size: max(1rem, 8cqi);
-}
-
-main > div:nth-child(3) div > div:nth-child(1) span::after {
-    content: "\2103";
+/*========== status ==========*/
+main > div:nth-child(3) > p:nth-child(2) {
+    text-transform: capitalize;
     font-size: 2rem;
+    font-weight: bold;
+
+    grid-column: 1 / 6;
+    grid-row: 2 / 3;
+}
+
+/*========== temperature ==========*/
+main > div:nth-child(3) > p:nth-child(3) {
+    text-transform: capitalize;
+    font-size: max(1rem, 8cqi);
+    font-weight:500;
+
+    grid-column: 1 / 4;
+    grid-row: 3 / 6;
+}
+
+/*========== image ==========*/
+main > div:nth-child(3) > img:nth-child(4) {
+    width: 40%;
+    height: auto;
+
+    grid-column: 4 / 6;
+    grid-row: 3 / 6;
+    justify-self: start;
+}
+
+/*========== feels like ==========*/
+main > div:nth-child(3) > p:nth-child(5) {
+    grid-column: 1 / 3;
+    grid-row: 6 / 8;
+
+    padding-right: 5%;
+    justify-self: end;
+}
+
+main > div:nth-child(3) > p:nth-child(5) > span{
+    display: block;
+    font-size: 3rem;
+}   
+
+/*========== uv index ==========*/
+main > div:nth-child(3) > p:nth-child(6) {
+    grid-column: 1 / 3;
+    grid-row: 8 / 10;
     
+    padding-right: 9%;
+    justify-self: end;
+}
+
+main > div:nth-child(3) > p:nth-child(6) > span{
+    display: block;
+    font-size: 3rem;
+}   
+
+/*========== divider ==========*/
+main > div:nth-child(3) > div:nth-child(7) {
+    grid-column: 3 / 4;
+    grid-row: 6 / 10;
+    
+    border-left: 2px solid rgb(153, 153, 153);
+    height: 100%;
+    
+}
+
+/*========== right container ==========*/
+main > div:nth-child(3) > div:nth-child(8) {
+    grid-column: 4 / 6;
+    grid-row: 6 / 10;
+    justify-self: start;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 5%;
+    gap: 1rem;
+    text-align: left;
+}
+
+/*========== right container: p ==========*/
+main > div:nth-child(3) > div:nth-child(8) > p {
+    font-size: 1rem;
+}
+
+/*========== right container: p > span ==========*/
+main > div:nth-child(3) > div:nth-child(8) > p > span{
+    display: block;
+    font-size: 1.6rem;
+}
+
+/*========== Measurement Units ==========*/
+
+/* Temp */
+main > div:nth-child(3) > p:nth-child(3)::after {
+    content: "\00b0 C";
+    font-size: 3rem;
+  
     color: var(--gray1);
     vertical-align:middle;
     display: inline-block;
@@ -48,55 +133,148 @@ main > div:nth-child(3) div > div:nth-child(1) span::after {
     bottom: 1rem;
 }
 
-main > div:nth-child(3) div > div:nth-child(2){
-    border-left: 2px solid rgb(153, 153, 153);
-    height: 100%;
-    width: 0;
-    align-self: center;
-    justify-self: center;
-}
-
-main > div:nth-child(3) div > div:nth-child(3) {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-
-    align-items: start;
-    justify-content: center;
-    gap: 1rem;
-    font-size: max(1rem, 1.5cqi);
-}
-
-main > div:nth-child(3) div > div:nth-child(3) span {
-    color: var(--gray1);
-}
-
-
-/* Measurement Units */
-main > div:nth-child(3) span::after {
+/* feeling like */
+main > div:nth-child(3) > p:nth-child(5) > span::after {
+    content: "\00b0 C";
+    font-size: 1rem;
     color: var(--gray2);
+
+    vertical-align:middle;
+    display: inline-block;
+    position: relative;
+    bottom: 0.5rem;
 }
 
-main > div:nth-child(3) div > div:nth-child(3) p:nth-child(1) span::after {
-    content: "\2103";
-}
-
-main > div:nth-child(3) div > div:nth-child(3) p:nth-child(1) span::after {
-    content: "\2103";
-}
-
-main > div:nth-child(3) div > div:nth-child(3) p:nth-child(2) span::after {
+/* cloud */
+main > div:nth-child(3) > div:nth-child(8) > p:nth-child(1) > span::after {
     content: "%";
 }
 
-main > div:nth-child(3) div > div:nth-child(3) p:nth-child(3) span::after {
+/* humidity */
+main > div:nth-child(3) > div:nth-child(8) > p:nth-child(2) > span::after {
     content: "%";
 }
 
-main > div:nth-child(3) div > div:nth-child(3) p:nth-child(4) span::after {
+/* precipitation */
+main > div:nth-child(3) > div:nth-child(8) > p:nth-child(3) > span::after {
     content: "mm";
 }
 
-main > div:nth-child(3) div > div:nth-child(3) p:nth-child(5) span::after {
+/* pressure */
+main > div:nth-child(3) > div:nth-child(8) > p:nth-child(4) > span::after {
     content: "in";
+}
+
+/*========== Media Queries ==========*/
+/* Tablet: 1024px */
+@media (max-width: 1200px) {
+
+    main > div:nth-child(3) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) 0.2fr repeat(2, 1fr);
+        grid-template-rows: 1fr 0.5fr repeat(7, 1fr);
+    }
+
+    /*========== today ==========*/
+    main > div:nth-child(3) > p:nth-child(1) {
+        font-size: 1rem;
+    }
+
+    /*========== status ==========*/
+    main > div:nth-child(3) > p:nth-child(2) {
+        font-size: 1.5rem;
+    }
+
+    /*========== temperature ==========*/
+    main > div:nth-child(3) > p:nth-child(3) {
+        text-transform: capitalize;
+        font-size: max(1rem, 8cqi);
+        font-weight:500;
+
+        grid-column: 1 / 4;
+        grid-row: 3 / 7;
+    }
+
+    /*========== image ==========*/
+    main > div:nth-child(3) > img:nth-child(4) {
+        width: 30%;
+        padding-top: 1rem;
+        grid-column: 4 / 6;
+        grid-row: 3 / 5;
+        justify-self: center;
+    }
+
+    /*========== feels like ==========*/
+    main > div:nth-child(3) > p:nth-child(5) {
+        grid-column: 4 / 5;
+        grid-row: 5 / 7;
+
+        padding: 0;
+        justify-self: center;
+        font-size: 1rem;
+    }
+
+    main > div:nth-child(3) > p:nth-child(5) > span{
+        display: block;
+        font-size: 1.5rem;
+    }   
+
+    /*========== uv index ==========*/
+    main > div:nth-child(3) > p:nth-child(6) {
+        grid-column: 5 / 6;
+        grid-row: 5 / 7;
+        
+        padding: 0;
+        justify-self: center;
+        font-size: 1rem;
+    }
+
+    main > div:nth-child(3) > p:nth-child(6) > span{
+        display: block;
+        font-size: 1.5rem;
+    }   
+
+    /*========== divider ==========*/
+    main > div:nth-child(3) > div:nth-child(7) {
+        grid-column: 2 / 5;
+        grid-row: 7 / 8;
+        
+        border-left: none;
+        border-top: 2px solid var(--gray2);
+        height: 0;
+        width: 100%;   
+    }
+
+    /*========== right container ==========*/
+    main > div:nth-child(3) > div:nth-child(8) {
+        grid-column: 1 / 6;
+        grid-row: 8 / 10;
+        justify-self: center;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: none;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    /*========== right container: p ==========*/
+    main > div:nth-child(3) > div:nth-child(8) > p {
+        font-size: 0.9rem;
+    }
+
+    /*========== right container: p > span ==========*/
+    main > div:nth-child(3) > div:nth-child(8) > p > span{
+        display: block;
+        font-size: 1.2rem;
+    }
+
+}
+
+/* Phone: 360 */
+@media (max-width: 550px), screen and (orientation: portrait) {
+
+    
 }
