@@ -2,7 +2,7 @@
 
 /*========== Parent Cont ==========*/
 main > div:nth-child(6) {
-    font-size: clamp(1rem, 1.5cqw, 2rem);
+    font-size: clamp(16px, 1.5cqw, 2rem);
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -63,9 +63,8 @@ main > div:nth-child(6) div:is(:nth-child(1), :nth-child(2)) > p:last-child::aft
         padding: 5px
     }
 
-    /*========== inner P ==========*/
+    /*========== inner P values==========*/
     main > div:nth-child(6) div > p:last-child {
-        color: var(--gray1);
         margin-top: 0.5rem;
     }
 
@@ -77,3 +76,15 @@ main > div:nth-child(6) div:is(:nth-child(1), :nth-child(2)) > p:last-child::aft
 }
 
 /* Phone: 360 */
+@media (max-width: 550px), screen and (orientation: portrait) {
+     /*========== inner values ==========*/
+    main > div:nth-child(6) div > p:last-child {
+        margin-top: 0.2rem;
+    }
+
+    /*========== arrow ==========*/
+    main > div:nth-child(6) div img {
+        height: 20px;
+        margin-top: 0.2rem;
+    }
+}

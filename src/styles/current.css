@@ -10,6 +10,7 @@ main > div:nth-child(3) {
     grid-template-rows: repeat(2, 0.5fr) repeat(7, 1fr) 0.5fr;
     justify-items: center;
     align-items: center;
+    padding-top: 10px;
 }
 
 /*========== today ==========*/
@@ -17,19 +18,17 @@ main > div:nth-child(3) > p:nth-child(1) {
     font-weight: bold;
     color: var(--gray2);
     text-transform: capitalize;
-    font-size: 1rem;
+    font-size: clamp(14px,2cqw, 1.5rem);
 
     grid-column: 1 / 6;
     grid-row: 1 / 2;
-
     align-self: end;
-
 }
 
 /*========== status ==========*/
 main > div:nth-child(3) > p:nth-child(2) {
     text-transform: capitalize;
-    font-size: 2rem;
+    font-size: clamp(18px, 3cqw, 2rem);
     font-weight: bold;
 
     grid-column: 1 / 6;
@@ -39,7 +38,7 @@ main > div:nth-child(3) > p:nth-child(2) {
 /*========== temperature ==========*/
 main > div:nth-child(3) > p:nth-child(3) {
     text-transform: capitalize;
-    font-size: max(1rem, 8cqi);
+    font-size: clamp(3rem, 8cqw, 6rem);
     font-weight:500;
 
     grid-column: 1 / 4;
@@ -48,7 +47,7 @@ main > div:nth-child(3) > p:nth-child(3) {
 
 /*========== image ==========*/
 main > div:nth-child(3) > img:nth-child(4) {
-    width: 40%;
+    width: 110px;
     height: auto;
 
     grid-column: 4 / 6;
@@ -60,6 +59,7 @@ main > div:nth-child(3) > img:nth-child(4) {
 main > div:nth-child(3) > p:nth-child(5) {
     grid-column: 1 / 3;
     grid-row: 6 / 8;
+    font-size: 1.6rem;
 
     padding-right: 5%;
     justify-self: end;
@@ -74,6 +74,7 @@ main > div:nth-child(3) > p:nth-child(5) > span{
 main > div:nth-child(3) > p:nth-child(6) {
     grid-column: 1 / 3;
     grid-row: 8 / 10;
+    font-size: 1.6rem;
     
     padding-right: 9%;
     justify-self: end;
@@ -91,7 +92,6 @@ main > div:nth-child(3) > div:nth-child(7) {
     
     border-left: 2px solid rgb(153, 153, 153);
     height: 100%;
-    
 }
 
 /*========== right container ==========*/
@@ -99,34 +99,37 @@ main > div:nth-child(3) > div:nth-child(8) {
     grid-column: 4 / 6;
     grid-row: 6 / 10;
     justify-self: start;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: start;
+    justify-content: space-between;
     margin-left: 5%;
-    gap: 1rem;
     text-align: left;
 }
 
 /*========== right container: p ==========*/
 main > div:nth-child(3) > div:nth-child(8) > p {
-    font-size: 1rem;
+    font-size: clamp(12px, 2cqw, 1rem);
 }
 
 /*========== right container: p > span ==========*/
 main > div:nth-child(3) > div:nth-child(8) > p > span{
     display: block;
-    font-size: 1.6rem;
+    font-size: clamp(14px, 3cqw, 1.5rem);
 }
 
 /*========== Measurement Units ==========*/
-
 /* Temp */
+main > div:nth-child(3) ::after {
+    color: var(--gray2);
+}
+
 main > div:nth-child(3) > p:nth-child(3)::after {
     content: "\00b0 C";
-    font-size: 3rem;
-  
-    color: var(--gray1);
+    font-size: clamp(16px, 2cqw, 3rem);
+
     vertical-align:middle;
     display: inline-block;
     position: relative;
@@ -136,13 +139,16 @@ main > div:nth-child(3) > p:nth-child(3)::after {
 /* feeling like */
 main > div:nth-child(3) > p:nth-child(5) > span::after {
     content: "\00b0 C";
-    font-size: 1rem;
-    color: var(--gray2);
+    font-size: clamp(12px, 2cqw, 2rem);
 
     vertical-align:middle;
     display: inline-block;
     position: relative;
     bottom: 0.5rem;
+}
+
+main > div:nth-child(3) > div:nth-child(8) > p > span::after {
+    font-size: clamp(14px, 2cqw, 1rem);;
 }
 
 /* cloud */
@@ -174,31 +180,18 @@ main > div:nth-child(3) > div:nth-child(8) > p:nth-child(4) > span::after {
         display: grid;
         grid-template-columns: repeat(2, 1fr) 0.2fr repeat(2, 1fr);
         grid-template-rows: 1fr 0.5fr repeat(7, 1fr);
-    }
-
-    /*========== today ==========*/
-    main > div:nth-child(3) > p:nth-child(1) {
-        font-size: 1rem;
-    }
-
-    /*========== status ==========*/
-    main > div:nth-child(3) > p:nth-child(2) {
-        font-size: 1.5rem;
+        padding: 5px;
     }
 
     /*========== temperature ==========*/
     main > div:nth-child(3) > p:nth-child(3) {
-        text-transform: capitalize;
-        font-size: max(1rem, 8cqi);
-        font-weight:500;
-
         grid-column: 1 / 4;
         grid-row: 3 / 7;
     }
 
     /*========== image ==========*/
     main > div:nth-child(3) > img:nth-child(4) {
-        width: 30%;
+        width: 70px;
         padding-top: 1rem;
         grid-column: 4 / 6;
         grid-row: 3 / 5;
@@ -209,30 +202,28 @@ main > div:nth-child(3) > div:nth-child(8) > p:nth-child(4) > span::after {
     main > div:nth-child(3) > p:nth-child(5) {
         grid-column: 4 / 5;
         grid-row: 5 / 7;
-
+        font-size: clamp(14px, 2cqw, 3rem);
         padding: 0;
         justify-self: center;
-        font-size: 1rem;
     }
 
     main > div:nth-child(3) > p:nth-child(5) > span{
+        font-size: clamp(20px, 3cqw, 4rem);
         display: block;
-        font-size: 1.5rem;
     }   
 
     /*========== uv index ==========*/
     main > div:nth-child(3) > p:nth-child(6) {
         grid-column: 5 / 6;
         grid-row: 5 / 7;
-        
+        font-size: clamp(14px, 2cqw, 3rem);
         padding: 0;
         justify-self: center;
-        font-size: 1rem;
     }
 
     main > div:nth-child(3) > p:nth-child(6) > span{
+        font-size: clamp(20px, 3cqw, 4rem);
         display: block;
-        font-size: 1.5rem;
     }   
 
     /*========== divider ==========*/
@@ -258,52 +249,32 @@ main > div:nth-child(3) > div:nth-child(8) > p:nth-child(4) > span::after {
         align-items: center;
         justify-content: space-evenly;
         margin: none;
-        gap: 0;
         text-align: center;
-    }
-
-    /*========== right container: p ==========*/
-    main > div:nth-child(3) > div:nth-child(8) > p {
-        font-size: 0.9rem;
-    }
-
-    /*========== right container: p > span ==========*/
-    main > div:nth-child(3) > div:nth-child(8) > p > span{
-        display: block;
-        font-size: 1.2rem;
     }
 
 }
 
 /* Phone: 360 */
 @media (max-width: 550px), screen and (orientation: portrait) {
-
+    /*========== Current Weather Cont ==========*/
+    main > div:nth-child(3) {
+        padding: 5px;
+    }
     /*========== Current Weather Cont ==========*/
     main > div:nth-child(3) {
         grid-template-columns: repeat(3, 1fr); 
         grid-template-rows: repeat(2, 0.5fr) repeat(3, 1fr);
     }
 
-    /*========== today ==========*/
-    main > div:nth-child(3) > p:nth-child(1) {
-        font-size: 0.7rem;
-    }
-
-    /*========== status ==========*/
-    main > div:nth-child(3) > p:nth-child(2) {
-        font-size: 1rem;
-    }
-
     /*========== temperature ==========*/
     main > div:nth-child(3) > p:nth-child(3) {
         grid-column: 2 / 3;
         grid-row: 3 / 5;
-        font-size: 3rem;
     }
 
     /*========== image ==========*/
     main > div:nth-child(3) > img:nth-child(4) {
-        width: 50%;
+        width: 70px;
         padding-top: 1rem;
 
         grid-column: 1 / 2;
@@ -316,30 +287,15 @@ main > div:nth-child(3) > div:nth-child(8) > p:nth-child(4) > span::after {
         grid-column: 3 / 5;
         grid-row: 3 / 4;
 
-        padding: 0;
-        justify-self: center;
-        font-size: 0.8rem;
+        text-align: left;
     }
-
-    main > div:nth-child(3) > p:nth-child(5) > span{
-        display: block;
-        font-size: 1.3rem;
-    }   
 
     /*========== uv index ==========*/
     main > div:nth-child(3) > p:nth-child(6) {
         grid-column: 3 / 5;
         grid-row: 4 / 5;
-        
-        padding: 0;
-        justify-self: center;
-        font-size: 0.8rem;
+        text-align: left;
     }
-
-    main > div:nth-child(3) > p:nth-child(6) > span{
-        display: block;
-        font-size: 1.3rem;
-    }   
 
     /*========== divider ==========*/
     main > div:nth-child(3) > div:nth-child(7) {
@@ -351,19 +307,4 @@ main > div:nth-child(3) > div:nth-child(8) > p:nth-child(4) > span::after {
         grid-column: 1 / 6;
         grid-row: 5 / 6;
     }
-
-    /*========== right container: p ==========*/
-    main > div:nth-child(3) > div:nth-child(8) > p {
-        font-size: 0.7rem;
-    }
-
-    /*========== right container: p > span ==========*/
-    main > div:nth-child(3) > div:nth-child(8) > p > span{
-        font-size: 1rem;
-    }
-    
-    main > div:nth-child(3) > p:nth-child(3)::after {
-        font-size: 1rem;
-    }
-
 }
