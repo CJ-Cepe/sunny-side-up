@@ -11,7 +11,7 @@ class WeatherAPI {
   async fetchData(api, area = "dubai", days = 3) {
     try {
       const response = await fetch(
-        `${this.baseUrl}${api}?key=${this.key}&q=${area}&days=${days}`,
+        `${this.baseUrl}${api}?key=${this.key}&q=${area}&days=${days}`, {mode: 'cors'}
       );
       const data = await response.json();
       console.log(data);

@@ -4,9 +4,9 @@ const { merge } = require('webpack-merge');
 
  module.exports = merge(common, {
    mode: 'production',
-   devtool: 'source-mal',
+   devtool: 'source-map',
    module: {
-    rule: [
+    rules: [
       {
         test: /\.(?:js|mjs|cjs)$/,
         exclude: /node_modules/,
@@ -20,5 +20,5 @@ const { merge } = require('webpack-merge');
         }
       }
     ]
-   }
+   },
  });
