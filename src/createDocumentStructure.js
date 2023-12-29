@@ -136,7 +136,7 @@ function setLocationElements(locationCont) {
   const left = document.createElement("div");
   const dateCont = document.createElement("div");
 
-  dateCont.append(day, date)
+  dateCont.append(day, date);
   left.append(country, area, dateCont, time);
   locationCont.append(left, img);
 
@@ -300,8 +300,8 @@ function setNextDayElements(days) {
     "humidity",
     "wind",
     "UV index",
-    "Chance of rain",
-    "Chance of snow",
+    "Rain Chance",
+    "Snow Chance",
   ];
   let nextDay = [];
   for (let i = 0; i < 3; i++) {
