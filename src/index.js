@@ -22,16 +22,24 @@ import "./styles/gradient.css";
   //what if empty input and clicked
   doc.search.button.addEventListener("click", async (event) => {
     event.preventDefault();
-    const data = await getForecast(doc.search.input.value);
-    updateContent(doc, data);
+    //handle empty
+    if(doc.search.input.value !== ""){
+      const data = await getForecast(doc.search.input.value);
+      //handle no matching location
+      if(!data.hasOwnProperty('error')){
+        updateContent(doc, data);
+      }
+    } 
   });
-  
+
   //what if user denied
   doc.getLocation.getLocationBtn.addEventListener("click", async () => {
-    const newTimeout = new Promise((resolve) => setTimeout(resolve, 5000, null));
+    const newTimeout = new Promise((resolve) =>
+      setTimeout(resolve, 5000, null),
+    );
     let newPosition = await Promise.race([getPosition(), newTimeout]);
-    showPreloader(false)
-    if(newPosition){
+    showPreloader(false);
+    if (newPosition) {
       const newData = await getForecast(newPosition);
       updateContent(doc, newData);
     }
