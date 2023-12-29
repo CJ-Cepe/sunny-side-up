@@ -8,13 +8,13 @@ function getLocation(options = {}) {
 
 async function getPosition() {
   try {
-    showPreloader();
+    showPreloader(true);
     const position = await getLocation();
-    showPreloader();
-
     return `${position.coords.latitude}, ${position.coords.longitude}`;
   } catch (error) {
     console.log("Error: " + error.message);
+  } finally {
+    showPreloader(false);
   }
 }
 export { getPosition };

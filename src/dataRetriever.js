@@ -8,7 +8,7 @@ class WeatherAPI {
     this.key = "c6bbf07487324ab7956102416231012";
   }
 
-  async fetchData(api, area = "dubai", days = 3) {
+  async fetchData(api, area, days = 3) {
     try {
       const response = await fetch(
         `${this.baseUrl}${api}?key=${this.key}&q=${area}&days=${days}`,
@@ -32,8 +32,8 @@ class WeatherAPI {
 } // end
 
 //pure-getter
-async function getForecast(area) {
-  showPreloader();
+async function getForecast(area = "dubai") {
+  showPreloader(true);
   const weatherAPI = new WeatherAPI();
   const data = await weatherAPI.fetchForecast(area);
   console.log(data);
@@ -41,7 +41,7 @@ async function getForecast(area) {
   const currentWeather = getCurrentWeatherInfo(data);
   const windInfo = getWindInfo(data);
   const foreCast = getNextDayForecast(data);
-  showPreloader();
+  showPreloader(false);
 
   return { location, currentWeather, windInfo, foreCast };
 }
@@ -152,9 +152,13 @@ function formatDate(date) {
   return formattedDate;
 }
 
-function showPreloader() {
+function showPreloader(status = false) {
   const preloader = document.querySelector(".preloader");
-  preloader.classList.toggle("visible");
+  if(status){
+    preloader.classList.add("visible");
+  } else {
+    preloader.classList.remove("visible");
+  }
 }
 
 export { getForecast, getAreaList, showPreloader };

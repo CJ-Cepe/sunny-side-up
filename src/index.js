@@ -13,7 +13,9 @@ import "./styles/gradient.css";
 
 (async function () {
   const doc = createDocu();
-  const position = await getPosition();
+  const timeout = new Promise(resolve => setTimeout(resolve, 5000, null));
+  let position = await Promise.race([getPosition(), timeout]);
+  position = position ? position : 'manila';
   const data = await getForecast(position);
   updateContent(doc, data);
 
