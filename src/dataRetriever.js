@@ -4,14 +4,15 @@
 
 class WeatherAPI {
   constructor() {
-    this.baseUrl = "http://api.weatherapi.com/v1/";
+    this.baseUrl = "https://api.weatherapi.com/v1/";
     this.key = "c6bbf07487324ab7956102416231012";
   }
 
   async fetchData(api, area = "dubai", days = 3) {
     try {
       const response = await fetch(
-        `${this.baseUrl}${api}?key=${this.key}&q=${area}&days=${days}`, {mode: 'cors'}
+        `${this.baseUrl}${api}?key=${this.key}&q=${area}&days=${days}`,
+        { mode: "cors" },
       );
       const data = await response.json();
       console.log(data);

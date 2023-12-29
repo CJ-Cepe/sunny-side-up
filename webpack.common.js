@@ -13,6 +13,9 @@ const path = require('path');
        filename: 'index.html',
        inject: 'head',
        scriptLoading: 'defer',
+       meta: {
+        'interactive-widget': {'content': 'overlays-content'},
+       },
      }),
    ],
    output: {
