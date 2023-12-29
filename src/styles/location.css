@@ -76,25 +76,25 @@ main > div:nth-child(4) > div > p:nth-child(4){
     
     /*========== Right div: Country ==========*/
     main > div:nth-child(4) > div> p:nth-child(1){
-        font-size: 14px;
+        font-size: 12px;
         padding-left: 10vw;
     }
     
     /*========== Right div: Area ==========*/
     main > div:nth-child(4) > div > p:nth-child(2){
-        font-size: 25px;
+        font-size: 20px;
         padding-left: 12vw;
     }
     
     /*========== Right div: Day & Date ==========*/
     main > div:nth-child(4) > div > div:nth-child(3){
-        font-size: 14px;
+        font-size: 12px;
         padding-left: 12vw;
     }
     
     /*========== Right div: Time ==========*/
     main > div:nth-child(4) > div > p:nth-child(4){
-        font-size: 30px;
+        font-size: 25px;
         padding-left: 10vw;
     }
 }
