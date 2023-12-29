@@ -20,7 +20,7 @@ main > div:nth-child(4) > div {
 
 /*========== Left img ==========*/
 main > div:nth-child(4) > img{
-    width: 150px;
+    width: clamp(110px, 10vw, 150px);
     aspect-ratio: 1 /1;
     position: relative;
     top: 10%;
@@ -28,14 +28,12 @@ main > div:nth-child(4) > img{
 
 /*========== Right div: Country ==========*/
 main > div:nth-child(4) > div> p:nth-child(1){
-   /*  font-size: max(1rem, 2cqi); */
-   font-size: clamp(1.8rem, 2vw, 2rem);
+   font-size: clamp(20px, 5vw, 25px);
 }
 
 /*========== Right div: Area ==========*/
 main > div:nth-child(4) > div > p:nth-child(2){
-   /* font-size: max(2rem, 4cqi); */
-   font-size: clamp(3.3rem, 4vw, 3.5rem);
+   font-size: clamp(50px, 5vw, 200px);  
    font-weight: 700;
 
    padding-left: 1rem;
@@ -43,65 +41,62 @@ main > div:nth-child(4) > div > p:nth-child(2){
 
 /*========== Right div: Day & Date ==========*/
 main > div:nth-child(4) > div > div:nth-child(3){
-    font-size: clamp(1.3rem, 2vw, 1.5rem);
+    font-size: 20px;
     padding-left: 1rem; 
 }
 
 /*========== Right div: Time ==========*/
 main > div:nth-child(4) > div > p:nth-child(4){
-    /* font-size: max(1rem, 5cqi); */
-    font-size: clamp(4.3rem, 5vw, 4.5rem);
+    font-size: clamp(50px, 5vw, 200px);
 }
 
 
 /*========== Media Queries ==========*/
 /* Tablet: 1024px */
 @media (max-width: 1200px) {
-    /*========== Left img ==========*/
-    main > div:nth-child(4) > img{
-        width: 90px;
+    /*========== Location Cont ==========*/
+    main > div:nth-child(4) {
+        grid-template-columns: 1fr 0.3fr;
+        padding: 10px;
     }
-
-    /*========== Right div: Country ==========*/
-    main > div:nth-child(4) > div> p:nth-child(1){
-        font-size: clamp(12px, 2vw, 1.5rem);
-    }
-    
-    /*========== Right div: Area ==========*/
-    main > div:nth-child(4) > div > p:nth-child(2){
-        font-size: clamp(25px, 4vw, 3rem);
-    }
-    
-    /*========== Right div: Day & Date ==========*/
-    main > div:nth-child(4) > div > div:nth-child(3){
-        font-size: clamp(12px, 2vw, 1rem);
-    }
-    
-    /*========== Right div: Time ==========*/
-    main > div:nth-child(4) > div > p:nth-child(4){
-        font-size: clamp(25px, 4vw, 4rem);
-    }
- 
 }
 
 /* Phone: 360 */
 @media (max-width: 550px), screen and (orientation: portrait) {
     /*========== Location Cont ==========*/
     main > div:nth-child(4) {
-        padding: 10px;
-    }
-
-    /*========== Right div ==========*/
-    main > div:nth-child(4) > div {
-        align-items: center;
+        grid-template-columns: 1fr 0.5fr;
     }
 
     /*========== Left img ==========*/
     main > div:nth-child(4) > img{
-        width: 40px;
-        position: static;
+        width: clamp(70px, 15vw, 100px);
+       /*  position: static; */
     }
     
+    /*========== Right div: Country ==========*/
+    main > div:nth-child(4) > div> p:nth-child(1){
+        font-size: 14px;
+        padding-left: 10vw;
+    }
+    
+    /*========== Right div: Area ==========*/
+    main > div:nth-child(4) > div > p:nth-child(2){
+        font-size: 25px;
+        padding-left: 12vw;
+    }
+    
+    /*========== Right div: Day & Date ==========*/
+    main > div:nth-child(4) > div > div:nth-child(3){
+        font-size: 14px;
+        padding-left: 12vw;
+    }
+    
+    /*========== Right div: Time ==========*/
+    main > div:nth-child(4) > div > p:nth-child(4){
+        font-size: 30px;
+        padding-left: 10vw;
+    }
 }
 
 
