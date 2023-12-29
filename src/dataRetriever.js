@@ -154,7 +154,7 @@ function formatDate(date) {
 
 function showPreloader(status = false) {
   const preloader = document.querySelector(".preloader");
-  if(status){
+  if (status) {
     preloader.classList.add("visible");
   } else {
     preloader.classList.remove("visible");

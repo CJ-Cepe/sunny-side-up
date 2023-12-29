@@ -1,5 +1,5 @@
 import { createDocu } from "./createDocumentStructure";
-import { getForecast } from "./dataRetriever";
+import { getForecast, showPreloader } from "./dataRetriever";
 import { updateContent } from "./layoutManager";
 import { getPosition } from "./locationRetriever";
 
@@ -13,9 +13,9 @@ import "./styles/gradient.css";
 
 (async function () {
   const doc = createDocu();
-  const timeout = new Promise(resolve => setTimeout(resolve, 5000, null));
+  const timeout = new Promise((resolve) => setTimeout(resolve, 5000, null));
   let position = await Promise.race([getPosition(), timeout]);
-  position = position ? position : 'manila';
+  position = position ? position : "manila";
   const data = await getForecast(position);
   updateContent(doc, data);
 
@@ -25,11 +25,15 @@ import "./styles/gradient.css";
     const data = await getForecast(doc.search.input.value);
     updateContent(doc, data);
   });
-
+  
   //what if user denied
   doc.getLocation.getLocationBtn.addEventListener("click", async () => {
-    const position = await getPosition();
-    const data = await getForecast(position);
-    updateContent(doc, data);
+    const newTimeout = new Promise((resolve) => setTimeout(resolve, 5000, null));
+    let newPosition = await Promise.race([getPosition(), newTimeout]);
+    showPreloader(false)
+    if(newPosition){
+      const newData = await getForecast(newPosition);
+      updateContent(doc, newData);
+    }
   });
 })();
