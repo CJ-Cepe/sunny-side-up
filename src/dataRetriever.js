@@ -31,13 +31,17 @@ class WeatherAPI {
   }
 } // end
 
-//pure-getter
 async function getForecast(area = "dubai") {
   showPreloader(true);
   const weatherAPI = new WeatherAPI();
   const data = await weatherAPI.fetchForecast(area);
   console.log(data);
-  if (data.hasOwnProperty("error")) {
+  /*   if (data.hasOwnProperty("error")) {
+    showPreloader(false);
+    return data;
+  } */
+
+  if (Object.prototype.hasOwnProperty.call(data, "error")) {
     showPreloader(false);
     return data;
   }
@@ -88,7 +92,7 @@ function getWindInfo(data) {
 }
 
 function getCurrentWeatherInfo(data) {
-  //get current Info
+  // get current Info
   const status = data.current.condition.text;
   const code = data.current.condition.code;
   const icon = data.current.condition.icon;
@@ -114,7 +118,7 @@ function getCurrentWeatherInfo(data) {
   };
 }
 
-//get location & time details
+// get location & time details
 function getLocationInfo(data) {
   const country = data.location.country;
   const area = data.location.name;
@@ -123,7 +127,6 @@ function getLocationInfo(data) {
   return { country, area, date, time, day, isDay };
 }
 
-//pure-helper
 function extractDate(localtime) {
   let [date, time] = localtime.split(" ");
   const day = getDayEquivalent(date);
@@ -133,7 +136,6 @@ function extractDate(localtime) {
   return { date, day, time, isDay };
 }
 
-//pure-helper
 function getDayEquivalent(date) {
   const dateObj = new Date(date);
   const days = [

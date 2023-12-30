@@ -76,7 +76,7 @@ function createMainContainers() {
     forecastCont,
   );
 
-  //setting classes
+  // setting classes
   addClassToChild(mainCont, "cont");
   forecastCont.classList.remove("cont");
   forecastCont.classList.add("forecastCont");
@@ -92,11 +92,9 @@ function createMainContainers() {
     nextDayWeatherCont1,
     nextDayWeatherCont2,
     nextDayWeatherCont3,
-
-    filter, //to edit filter only
+    filter,
   };
 
-  //helper
   function addClassToChild(element, classToAdd) {
     const containers = element.querySelectorAll(`div`);
     containers.forEach((container) => {
@@ -113,7 +111,7 @@ function setLogoElements(logoCont) {
   logoCont.append(image, content);
 }
 
-//for location
+// for location
 function setLocationCont(getLocationCont) {
   const getLocationBtn = document.createElement("button");
   const img = document.createElement("img");
@@ -126,7 +124,7 @@ function setLocationCont(getLocationCont) {
 }
 
 function setLocationElements(locationCont) {
-  //create location container elements
+  // create location container elements
   const country = document.createElement("p");
   const area = document.createElement("p");
   const day = document.createElement("p");
@@ -144,11 +142,9 @@ function setLocationElements(locationCont) {
 }
 
 function setCurrentWeatherElements(currentWeatherCont) {
-  //create current Day content
+  // create current Day content
   const condition = document.createElement("p");
   const image = new Image();
-  const bottomCont = document.createElement("div");
-  const leftCont = document.createElement("div");
   const rightCont = document.createElement("div");
   const divider = document.createElement("div");
 
@@ -237,7 +233,7 @@ function setWindInfoElements(windInfoCont) {
   degreeCont.append(degreeLabel, degreeValue);
   directionCont.append(directionLabel, directionValue);
 
-  //To transfer - add label contents
+  // To transfer - add label contents
   windLabel.textContent = "Wind";
   gustLabel.textContent = "Gust";
   directionLabel.textContent = "Direction";
@@ -269,22 +265,21 @@ function setSearchElements(searchCont) {
   input.required = "true";
   input.pattern = "[a-zA-Z]+";
   input.oninvalid = "setCustomValidity('Please enter on alphabets only. ')";
-  //button.textContent = "Search";
   img.src = search;
   button.type = "submit";
   datalist.id = "areas";
 
-  //search bar suggestion
+  // search bar suggestion
   input.addEventListener("input", async () => {
     datalist.textContent = "";
-    //check if input value is empty or not
+    // check if input value is empty or not
     if (input.value.length !== 0) {
       const searchList = await getAreaList(input.value);
-      //check if returned array is empty
+      // check if returned array is empty
       if (searchList.length !== 0) {
         console.log(searchList.length);
         searchList.forEach((element) => {
-          let option = document.createElement("option");
+          const option = document.createElement("option");
           option.value = element.name;
           datalist.appendChild(option);
         });
@@ -305,9 +300,9 @@ function setNextDayElements(days) {
     "Rain Chance",
     "Snow Chance",
   ];
-  let nextDay = [];
+  const nextDay = [];
   for (let i = 0; i < 3; i++) {
-    let elements = [];
+    const elements = [];
     const date = document.createElement("p");
     const day = document.createElement("p");
     const status = document.createElement("p");

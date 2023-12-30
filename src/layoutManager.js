@@ -9,9 +9,7 @@ function updateContent(doc, data) {
   setLocation(doc, data);
   setCurrent(doc, data);
   setWind(doc, data);
-
   setForecast(doc, data);
-  //setFontSizes(doc);
 }
 
 function setLocation(doc, data) {
@@ -19,16 +17,22 @@ function setLocation(doc, data) {
   doc.location.area.textContent = data.location.area;
   doc.location.day.textContent = data.location.day;
   doc.location.date.textContent = data.location.date;
-  //initial time set
   doc.location.time.textContent =
     data.location.time + " " + data.location.isDay;
   doc.location.img.src = setImage(data.location.isDay);
 
   updateFilter(data.location.isDay, doc.containers.filter);
-  //setTime(doc, data)
 }
 
-//condition, image, temperature, feelsLike, cloud, humidity, precipitation, pressure
+function setImage(isDay) {
+  if (isDay === "AM") {
+    return sun;
+  } else {
+    return moon;
+  }
+}
+
+// condition, image, temperature, feelsLike, cloud, humidity, precipitation, pressure
 function setCurrent(doc, data) {
   doc.currentWeather.condition.textContent = data.currentWeather.status;
   doc.currentWeather.image.src = data.currentWeather.icon;
@@ -43,12 +47,10 @@ function setCurrent(doc, data) {
   doc.currentWeather.uvIndex.textContent = data.currentWeather.uvIndex;
 }
 
-//return {wind, gust, degree, uvIndex}
 function setWind(doc, data) {
   doc.windInfo.wind.textContent = data.windInfo.wind;
   doc.windInfo.gust.textContent = data.windInfo.gust;
   doc.windInfo.direction.textContent = data.windInfo.direction;
-
   doc.windInfo.degree.style.transform = `rotate(${data.windInfo.degree}deg)`;
 }
 
@@ -56,7 +58,7 @@ function setForecast(doc, data) {
   console.log(data);
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 10; j++) {
-      if (doc.forecast[i][j].tagName != "IMG") {
+      if (doc.forecast[i][j].tagName !== "IMG") {
         doc.forecast[i][j].textContent = data.foreCast[i][j];
       } else {
         doc.forecast[i][j].src = data.foreCast[i][j];
@@ -66,10 +68,10 @@ function setForecast(doc, data) {
 }
 
 function setGradient(doc, data) {
-  let bg = doc.containers.body.style;
-  let code = data.currentWeather.code;
+  const bg = doc.containers.body.style;
+  const code = data.currentWeather.code;
 
-  if (1000 === code) {
+  if (code === 1000) {
     bg.backgroundColor = "var(--bg-1)";
     bg.backgroundImage = "var(--bg-img-1)";
   } else if ([1003, 1006, 1009, 1030].includes(code)) {
@@ -105,7 +107,7 @@ function setGradient(doc, data) {
   } else if ([1114, 1117].includes(code)) {
     bg.backgroundColor = "var(--bg-9)";
     bg.backgroundImage = "var(--bg-img-9)";
-  } else if (1237 === code) {
+  } else if (code === 1237) {
     bg.backgroundColor = "var(--bg-10)";
     bg.backgroundImage = "var(--bg-img-10)";
   } else {
@@ -123,18 +125,18 @@ function updateFilter(isDay, filter) {
 }
 
 function setFontSizes(doc) {
-  //country
+  // country
   adjustFontSize(doc.location.country, 1);
 
-  //location name
+  // location name
   adjustFontSize(doc.location.area, 2);
 
-  //temperature
+  // temperature
   adjustFontSize(doc.currentWeather.temperature, 3);
 }
 
-//Get text length of content
-//Passed on a function
+// Get text length of content
+// Passed on a function
 function adjustFontSize(elem, flag) {
   elem.style.fontSize = computeFontSize(elem.textContent.length, flag);
 }
@@ -173,48 +175,3 @@ function computeFontSize(textLength, flag) {
 }
 
 export { updateContent };
-
-let intervalId;
-
-function setTime(doc, data) {
-  //data.location.time = 18:37
-  if (intervalId) {
-    console.log("clearInterval");
-    clearInterval(intervalId);
-  }
-
-  let time = new Date();
-  let timeData = data.location.time.split(":");
-  time.setHours(timeData[0]);
-  time.setMinutes(timeData[1]);
-
-  //update time per 1 min
-  intervalId = setInterval(() => {
-    updateTime(time);
-  }, 10000);
-
-  function updateTime(time) {
-    time.setMinutes(time.getMinutes() + 1);
-    data.location.isDay = time.getHours() >= 12 ? "PM" : "AM";
-    doc.location.time.textContent = `${time.getHours()}:${time
-      .getMinutes()
-      .toString()
-      .padStart(2, "0")} ${data.location.isDay}`;
-    //swap img when hour is 0 or 12, swap img
-    if (
-      (time.getHours() === 0 && time.getMinutes() === 0) ||
-      (time.getHours() === 12 && time.getMinutes() === 0)
-    ) {
-      doc.location.img.src = setImage(data.location.isDay);
-    }
-    console.log(time.getHours(), time.getMinutes());
-  }
-}
-
-function setImage(isDay) {
-  if (isDay === "AM") {
-    return sun;
-  } else {
-    return moon;
-  }
-}
