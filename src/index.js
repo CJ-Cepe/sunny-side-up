@@ -20,7 +20,7 @@ import "./styles/gradient.css";
   position = position ? position : "manila";
   const data = await getForecast(position);
   updateContent(doc, data);
-  startInterval()
+  startInterval();
 
   //what if empty input and clicked
   doc.search.form.addEventListener("submit", async (event) => {
@@ -32,7 +32,7 @@ import "./styles/gradient.css";
       if (!data.hasOwnProperty("error")) {
         position = doc.search.input.value;
         updateContent(doc, data);
-        startInterval()
+        startInterval();
       }
     }
   });
@@ -48,21 +48,21 @@ import "./styles/gradient.css";
       position = newPosition;
       const newData = await getForecast(newPosition);
       updateContent(doc, newData);
-      startInterval()
+      startInterval();
     }
   });
 
   //update content of current area every {timer} mins
-  function startInterval(){
-    if(intervalId){
-      console.log('clear Interval')
-      clearInterval(intervalId)
+  function startInterval() {
+    if (intervalId) {
+      console.log("clear Interval");
+      clearInterval(intervalId);
     }
 
     intervalId = setInterval(async () => {
-        const data = await getForecast(position);
-        console.log("watermelon: ", position);
-        updateContent(doc, data);
-      }, timer);
-    }
+      const data = await getForecast(position);
+      console.log("watermelon: ", position);
+      updateContent(doc, data);
+    }, timer);
+  }
 })();
