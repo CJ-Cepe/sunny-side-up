@@ -44,4 +44,5 @@ import "./styles/gradient.css";
       updateContent(doc, newData);
     }
   });
+  
 })();
