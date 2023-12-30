@@ -21,7 +21,7 @@ import "./styles/gradient.css";
 
   //what if empty input and clicked
   doc.search.form.addEventListener("submit", async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     //handle empty
     if (doc.search.input.value !== "") {
       const data = await getForecast(doc.search.input.value);
