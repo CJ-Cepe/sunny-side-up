@@ -28,12 +28,6 @@ import "./styles/gradient.css";
     // handle empty
     if (doc.search.input.value !== "") {
       const data = await getForecast(doc.search.input.value);
-      // handle no matching location
-      /* if (!data.hasOwnProperty("error")) {
-        position = doc.search.input.value;
-        updateContent(doc, data);
-        startInterval();
-      } */
       if (!Object.prototype.hasOwnProperty.call(data, "error")) {
         position = doc.search.input.value;
         updateContent(doc, data);
@@ -60,13 +54,11 @@ import "./styles/gradient.css";
   // update content of current area every {timer} mins
   function startInterval() {
     if (intervalId) {
-      console.log("clear Interval");
       clearInterval(intervalId);
     }
 
     intervalId = setInterval(async () => {
       const data = await getForecast(position);
-      console.log("watermelon: ", position);
       updateContent(doc, data);
     }, timer);
   }

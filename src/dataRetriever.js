@@ -15,7 +15,6 @@ class WeatherAPI {
         { mode: "cors" },
       );
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
       console.log("Error:" + error);
@@ -35,11 +34,6 @@ async function getForecast(area = "dubai") {
   showPreloader(true);
   const weatherAPI = new WeatherAPI();
   const data = await weatherAPI.fetchForecast(area);
-  console.log(data);
-  /*   if (data.hasOwnProperty("error")) {
-    showPreloader(false);
-    return data;
-  } */
 
   if (Object.prototype.hasOwnProperty.call(data, "error")) {
     showPreloader(false);
@@ -71,7 +65,6 @@ function getNextDayForecast(data) {
       data.forecast.forecastday[i].day.daily_chance_of_snow,
     ]);
   }
-  console.log(...day);
   return day;
 }
 

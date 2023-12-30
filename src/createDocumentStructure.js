@@ -277,7 +277,6 @@ function setSearchElements(searchCont) {
       const searchList = await getAreaList(input.value);
       // check if returned array is empty
       if (searchList.length !== 0) {
-        console.log(searchList.length);
         searchList.forEach((element) => {
           const option = document.createElement("option");
           option.value = element.name;
@@ -321,6 +320,5 @@ function setNextDayElements(days) {
     }
     nextDay.push(elements);
   }
-  console.log(nextDay);
   return nextDay;
 }

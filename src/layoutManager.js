@@ -55,7 +55,6 @@ function setWind(doc, data) {
 }
 
 function setForecast(doc, data) {
-  console.log(data);
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 10; j++) {
       if (doc.forecast[i][j].tagName !== "IMG") {
