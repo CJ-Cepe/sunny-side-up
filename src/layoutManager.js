@@ -12,8 +12,6 @@ function updateContent(doc, data) {
 
   setForecast(doc, data);
   //setFontSizes(doc);
-
-  
 }
 
 function setLocation(doc, data) {
@@ -24,10 +22,10 @@ function setLocation(doc, data) {
   //initial time set
   doc.location.time.textContent =
     data.location.time + " " + data.location.isDay;
-  doc.location.img.src = setImage(data.location.isDay); 
+  doc.location.img.src = setImage(data.location.isDay);
 
   updateFilter(data.location.isDay, doc.containers.filter);
-  setTime(doc, data)
+  //setTime(doc, data)
 }
 
 //condition, image, temperature, feelsLike, cloud, humidity, precipitation, pressure
@@ -178,39 +176,45 @@ export { updateContent };
 
 let intervalId;
 
-function setTime(doc, data){  
+function setTime(doc, data) {
   //data.location.time = 18:37
-  if(intervalId) {
-    console.log('clearInterval')
+  if (intervalId) {
+    console.log("clearInterval");
     clearInterval(intervalId);
   }
 
   let time = new Date();
-  let timeData = data.location.time.split(':');
-  time.setHours(timeData[0])
-  time.setMinutes(timeData[1])
+  let timeData = data.location.time.split(":");
+  time.setHours(timeData[0]);
+  time.setMinutes(timeData[1]);
 
   //update time per 1 min
   intervalId = setInterval(() => {
-    updateTime(time)
+    updateTime(time);
   }, 10000);
 
-  function updateTime(time){
-    time.setMinutes(time.getMinutes() + 1)
+  function updateTime(time) {
+    time.setMinutes(time.getMinutes() + 1);
     data.location.isDay = time.getHours() >= 12 ? "PM" : "AM";
-    doc.location.time.textContent = `${time.getHours()}:${time.getMinutes().toString().padStart(2, '0')} ${data.location.isDay}`;
+    doc.location.time.textContent = `${time.getHours()}:${time
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")} ${data.location.isDay}`;
     //swap img when hour is 0 or 12, swap img
-    if((time.getHours() === 0 && time.getMinutes() === 0) || (time.getHours() === 12 && time.getMinutes() === 0)){
+    if (
+      (time.getHours() === 0 && time.getMinutes() === 0) ||
+      (time.getHours() === 12 && time.getMinutes() === 0)
+    ) {
       doc.location.img.src = setImage(data.location.isDay);
     }
-    console.log(time.getHours(), time.getMinutes())
+    console.log(time.getHours(), time.getMinutes());
   }
 }
 
-  function setImage(isDay) {
-    if (isDay === "AM") {
-      return sun;
-    } else {
-      return moon;
-    }
+function setImage(isDay) {
+  if (isDay === "AM") {
+    return sun;
+  } else {
+    return moon;
   }
+}
