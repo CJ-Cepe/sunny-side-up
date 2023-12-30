@@ -37,11 +37,11 @@ async function getForecast(area = "dubai") {
   const weatherAPI = new WeatherAPI();
   const data = await weatherAPI.fetchForecast(area);
   console.log(data);
-  if(data.hasOwnProperty('error')){
+  if (data.hasOwnProperty("error")) {
     showPreloader(false);
-    return data
+    return data;
   }
-  
+
   const location = getLocationInfo(data);
   const currentWeather = getCurrentWeatherInfo(data);
   const windInfo = getWindInfo(data);

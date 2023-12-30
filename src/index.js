@@ -20,16 +20,16 @@ import "./styles/gradient.css";
   updateContent(doc, data);
 
   //what if empty input and clicked
-  doc.search.button.addEventListener("click", async (event) => {
-    event.preventDefault();
+  doc.search.form.addEventListener("submit", async (event) => {
+    event.preventDefault(); 
     //handle empty
-    if(doc.search.input.value !== ""){
+    if (doc.search.input.value !== "") {
       const data = await getForecast(doc.search.input.value);
       //handle no matching location
-      if(!data.hasOwnProperty('error')){
+      if (!data.hasOwnProperty("error")) {
         updateContent(doc, data);
       }
-    } 
+    }
   });
 
   //what if user denied

@@ -267,6 +267,8 @@ function setSearchElements(searchCont) {
   input.setAttribute("list", "areas");
   input.placeholder = "Search Places";
   input.required = "true";
+  input.pattern = "[a-zA-Z]+";
+  input.oninvalid = "setCustomValidity('Please enter on alphabets only. ')";
   //button.textContent = "Search";
   img.src = search;
   button.type = "submit";
@@ -289,7 +291,7 @@ function setSearchElements(searchCont) {
       }
     }
   });
-  return { input, button };
+  return { input, form };
 }
 
 export { createDocu };
