@@ -77,7 +77,14 @@ main > div:nth-child(7) {
     /*========== Forecast Cont ==========*/
         main > div:nth-child(7) {
             gap: 5px;
+
+            -ms-overflow-style: none; /* for Internet Explorer, Edge */
+            scrollbar-width: none; /* for Firefox */
             overflow-x: scroll;
+        }
+
+        main > div:nth-child(7)::-webkit-scrollbar {
+            display: none;
         }
 
     /*========== div ==========*/
