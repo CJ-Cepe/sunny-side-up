@@ -4,15 +4,15 @@
 
 __[Live Demo](https://cj-cepe.github.io/sunny-side-up/)__
 
-<img src="./SunnySideUp-ui.png" width="60%" height="auto" alt= "SunnySideUp - morning, mobile screen">
+<img src="./SunnySideUp-ui.png" width="90%" height="auto" alt= "SunnySideUp - morning, mobile screen">
 
 ## Technologies Used: 
 * __APIs:__ Realtime API, Forecast API, & Search/Autocomplete API from [WeatherAPI.com](https://www.weatherapi.com/) (Free Tier)
     * Realtime weather, 1 million calls per month, & 3 day forecast
 * __Web Technologies:__ HTML, CSS, JS
-    * Webpack, Babel (supporting browsers with “>0.25%” usage)
+    * Webpack, Babel _(supporting browsers with “>0.25%” usage)_
     * eslint, prettier 
-    * jest (included in the project setup, although it hasn’t been utilized yet)
+    * jest _(included in the project setup, although it hasn’t been utilized yet)_
 * __Design Tools:__ Figma & Adobe Illustrator
     
 ## Features:
